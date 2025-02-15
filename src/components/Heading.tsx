@@ -5,7 +5,7 @@ import { Tag, TagColor } from "@/components/tag";
 import { remToPx } from "@/lib/remToPx";
 import { useInView } from "motion/react";
 import { Link } from "next-view-transitions";
-import { useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from "react";
 
 import { AnchorIcon } from "./icons";
 
@@ -95,7 +95,7 @@ export function Heading<Level extends 2 | 3>({
   useEffect(() => {
     registerHeading({
       id: props.id,
-      ref,
+      ref: ref as RefObject<HTMLHeadingElement>,
       offsetRem: tag || label || since || deprecated ? 8 : 6,
     });
   }, []);
