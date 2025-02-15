@@ -1,0 +1,42 @@
+import { HeroPattern } from "@/components/HeroPattern";
+import {
+	BackendAdapters,
+	Frameworks,
+	FrontendLibraries,
+} from "@/components/Libraries";
+import { docsMetadata } from "@/lib/utils";
+
+export const metadata = docsMetadata({
+	title: "Protocol Docs",
+	description: "Voluptate labore nisi duis fugiat ullamco Lorem.",
+	category: "Introduction",
+});
+
+export const sections = [
+	{ title: "Frameworks", id: "frameworks" },
+	{ title: "Backend Adapters", id: "backend-adapters" },
+	{ title: "Frontend Libraries", id: "frontend-libraries" },
+];
+
+<HeroPattern />
+
+# Tailwind Protocol Docs
+
+Amet proident pariatur irure nulla ea voluptate ipsum esse duis deserunt. Et voluptate dolor
+nulla eiusmod enim aliquip officia anim magna laboris occaecat duis ex. Pariatur proident cillum
+pariatur esse labore ut est commodo eiusmod esse amet commodo fugiat Lorem. Id est enim adipisicing
+adipisicing fugiat.
+
+<div className="not-prose mb-16 mt-6 flex gap-3">
+	<Button href="https://google.com" arrow="right">
+		<>Get Started</>
+	</Button>
+</div>
+
+## Getting started {{ anchor: false }}
+
+Cupidatat fugiat cillum aute incididunt laborum sit exercitation tempor mollit laborum eu qui. [Getting Started](https://google.com) {{ className: 'lead' }}
+
+<Frameworks />
+<BackendAdapters />
+<FrontendLibraries />
