@@ -28,16 +28,16 @@ RUN chown nextjs:nextjs .next
 COPY --from=builder --chown=nextjs:nextjs /usr/src/app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nextjs /usr/src/app/.next ./.next
 COPY --from=builder --chown=nextjs:nextjs /usr/src/app/public ./public
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/next.config.js ./next.config.js
+COPY --from=builder --chown=nextjs:nextjs /usr/src/app/next.config.ts ./next.config.ts
 COPY --from=builder --chown=nextjs:nextjs /usr/src/app/package.json ./package.json
 
 ENV NODE_ENV=production
 
-# Exposting on port 80 so we can
+# Exposting on port 3000 so we can
 # access via a reverse proxy for Dokku
 ENV HOSTNAME="0.0.0.0"
-EXPOSE 80
-ENV PORT=80
+EXPOSE 3000
+ENV PORT=3000
 
 USER nextjs
 CMD ["bun", "run", "server.js"]
