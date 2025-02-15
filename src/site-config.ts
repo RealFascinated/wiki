@@ -1,23 +1,41 @@
 export interface NavGroup {
-	title: string;
-	links: Array<{
-		title: string;
-		href: string;
-	}>;
+  title: string;
+  links: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
-export const socials = {
-	discord: "https://discord.rainnny.club",
-	github: "https://github.com/Rainnny7",
+type SiteConfig = {
+  /**
+   * The name of the website.
+   */
+  websiteName: string;
+
+  /**
+   * The socials for the site.
+   */
+  socials: {
+    discord: string;
+    github: string;
+  };
+
+  /**
+   * The navigation groups for the site.
+   */
+  navigation: Array<NavGroup>;
 };
 
-export const navigation: Array<NavGroup> = [
-	{
-		title: "Introduction",
-		links: [{ title: "Introduction", href: "/" }],
-	},
-	{
-		title: "Getting Started",
-		links: [{ title: "Next.js App Router", href: "/getting-started/appdir" }],
-	},
-];
+export const config: SiteConfig = {
+  websiteName: "Fascinated's Wiki",
+  socials: {
+    discord: "https://discord.fascinated.cc",
+    github: "https://github.com/realfascinated/wiki",
+  },
+  navigation: [
+    {
+      title: "Docker",
+      links: [{ title: "Install Docker", href: "/docs/docker/install" }],
+    },
+  ],
+};

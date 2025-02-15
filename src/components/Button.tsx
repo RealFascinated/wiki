@@ -3,57 +3,51 @@ import clsx from "clsx";
 import { Link } from "next-view-transitions";
 
 const variantStyles = {
-	primary:
-		"rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-1 dark:ring-inset dark:ring-blue-400/20 dark:hover:bg-blue-400/10 dark:hover:text-blue-300 dark:hover:ring-blue-300",
-	secondary:
-		"rounded-full bg-zinc-100 py-1 px-3 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800/40 dark:text-zinc-400 dark:ring-1 dark:ring-inset dark:ring-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-300",
-	filled:
-		"rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-blue-500 dark:text-white dark:hover:bg-blue-400",
-	outline:
-		"rounded-full py-1 px-3 text-zinc-700 ring-1 ring-inset ring-zinc-900/10 hover:bg-zinc-900/2.5 hover:text-zinc-900 dark:text-zinc-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white",
-	text: "text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500",
+  primary:
+    "rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-purple-400/10 dark:text-purple-400 dark:ring-1 dark:ring-inset dark:ring-purple-400/20 dark:hover:bg-purple-400/10 dark:hover:text-purple-300 dark:hover:ring-purple-300",
+  secondary:
+    "rounded-full bg-zinc-100 py-1 px-3 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800/40 dark:text-zinc-400 dark:ring-1 dark:ring-inset dark:ring-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-300",
+  filled:
+    "rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 dark:bg-purple-500 dark:text-white dark:hover:bg-purple-400",
+  outline:
+    "rounded-full py-1 px-3 text-zinc-700 ring-1 ring-inset ring-zinc-900/10 hover:bg-zinc-900/2.5 hover:text-zinc-900 dark:text-zinc-400 dark:ring-white/10 dark:hover:bg-white/5 dark:hover:text-white",
+  text: "text-purple-500 hover:text-purple-600 dark:text-purple-400 dark:hover:text-purple-500",
 };
 
 type ButtonProps = {
-	variant?: keyof typeof variantStyles;
-	arrow?: "left" | "right";
+  variant?: keyof typeof variantStyles;
+  arrow?: "left" | "right";
 } & (
-	| React.ComponentPropsWithoutRef<typeof Link>
-	| (React.ComponentPropsWithoutRef<"button"> & { href?: undefined })
+  | React.ComponentPropsWithoutRef<typeof Link>
+  | (React.ComponentPropsWithoutRef<"button"> & { href?: undefined })
 );
 
-export function Button({
-	variant = "primary",
-	className,
-	children,
-	arrow,
-	...props
-}: ButtonProps) {
-	className = clsx(
-		"inline-flex gap-1 justify-center items-center overflow-hidden text-sm font-medium transition",
-		variantStyles[variant],
-		className
-	);
+export function Button({ variant = "primary", className, children, arrow, ...props }: ButtonProps) {
+  className = clsx(
+    "inline-flex gap-1 justify-center items-center overflow-hidden text-sm font-medium transition",
+    variantStyles[variant],
+    className
+  );
 
-	let inner = (
-		<>
-			{arrow === "left" && <ArrowLeftIcon className="size-4" />}
-			{children}
-			{arrow === "right" && <ArrowRightIcon className="size-4" />}
-		</>
-	);
+  let inner = (
+    <>
+      {arrow === "left" && <ArrowLeftIcon className="size-4" />}
+      {children}
+      {arrow === "right" && <ArrowRightIcon className="size-4" />}
+    </>
+  );
 
-	if (typeof props.href === "undefined") {
-		return (
-			<button className={className} {...props}>
-				{inner}
-			</button>
-		);
-	}
+  if (typeof props.href === "undefined") {
+    return (
+      <button className={className} {...props}>
+        {inner}
+      </button>
+    );
+  }
 
-	return (
-		<Link className={className} {...props}>
-			{inner}
-		</Link>
-	);
+  return (
+    <Link className={className} {...props}>
+      {inner}
+    </Link>
+  );
 }

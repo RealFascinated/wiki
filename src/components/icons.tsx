@@ -19,13 +19,7 @@ export function CheckIcon(props: IconProps) {
 
 export function AnchorIcon(props: IconProps) {
   return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      strokeLinecap="round"
-      aria-hidden="true"
-      {...props}
-    >
+    <svg viewBox="0 0 20 20" fill="none" strokeLinecap="round" aria-hidden="true" {...props}>
       <path d="m6.5 11.5-.964-.964a3.535 3.535 0 1 1 5-5l.964.964m2 2 .964.964a3.536 3.536 0 0 1-5 5L8.5 13.5m0-5 3 3" />
     </svg>
   );
@@ -58,14 +52,7 @@ export function LoadingIcon(props: IconProps) {
         d="M15.5 10a5.5 5.5 0 1 0-5.5 5.5"
       />
       <defs>
-        <linearGradient
-          id={id}
-          x1="13"
-          x2="9.5"
-          y1="9"
-          y2="15"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient id={id} x1="13" x2="9.5" y1="9" y2="15" gradientUnits="userSpaceOnUse">
           <stop stopColor="currentColor" />
           <stop offset="1" stopColor="currentColor" stopOpacity="0" />
         </linearGradient>
@@ -104,12 +91,7 @@ export function DiscordIcon(props: IconProps) {
 
 export function AstroIcon(props: IconProps) {
   return (
-    <svg
-      viewBox="0 0 85 107"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 85 107" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M27.5894 91.1365C22.7555 86.7178 21.3444 77.4335 23.3583 70.7072C26.8503 74.948 31.6888 76.2914 36.7005 77.0497C44.4375 78.2199 52.0359 77.7822 59.2232 74.2459C60.0454 73.841 60.8052 73.3027 61.7036 72.7574C62.378 74.714 62.5535 76.6892 62.318 78.6996C61.7452 83.5957 59.3086 87.3778 55.4332 90.2448C53.8835 91.3916 52.2437 92.4167 50.6432 93.4979C45.7262 96.8213 44.3959 100.718 46.2435 106.386C46.2874 106.525 46.3267 106.663 46.426 107C43.9155 105.876 42.0817 104.24 40.6845 102.089C39.2087 99.8193 38.5066 97.3081 38.4696 94.5909C38.4511 93.2686 38.4511 91.9345 38.2733 90.6309C37.8391 87.4527 36.3471 86.0297 33.5364 85.9478C30.6518 85.8636 28.37 87.6469 27.7649 90.4554C27.7187 90.6707 27.6517 90.8837 27.5847 91.1341L27.5894 91.1365Z"
         fill="currentColor"
@@ -141,12 +123,7 @@ export function AstroIcon(props: IconProps) {
 
 export function ExpressIcon(props: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-      fill="currentColor"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" {...props}>
       <path d="M32 24.795c-1.164.296-1.884.013-2.53-.957l-4.594-6.356-.664-.88-5.365 7.257c-.613.873-1.256 1.253-2.4.944l6.87-9.222-6.396-8.33c1.1-.214 1.86-.105 2.535.88l4.765 6.435 4.8-6.4c.615-.873 1.276-1.205 2.38-.883l-2.48 3.288-3.36 4.375c-.4.5-.345.842.023 1.325L32 24.795zM.008 15.427l.562-2.764C2.1 7.193 8.37 4.92 12.694 8.3c2.527 1.988 3.155 4.8 3.03 7.95H1.48c-.214 5.67 3.867 9.092 9.07 7.346 1.825-.613 2.9-2.042 3.438-3.83.273-.896.725-1.036 1.567-.78-.43 2.236-1.4 4.104-3.45 5.273-3.063 1.75-7.435 1.184-9.735-1.248C1 21.6.434 19.812.18 17.9c-.04-.316-.12-.617-.18-.92q.008-.776.008-1.552zm1.498-.38h12.872c-.084-4.1-2.637-7.012-6.126-7.037-3.83-.03-6.58 2.813-6.746 7.037z" />
     </svg>
   );
@@ -168,12 +145,7 @@ export function FastifyIcon(props: IconProps) {
 
 export function H3Icon(props: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-      fill="none"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" {...props}>
       <path
         d="M17.42 13.51C17.42 13.51 24.6625 1.90748 24.8275 1.61748C24.9925 1.32748 25.0275 0.794983 24.5725 0.794983C24.1175 0.794983 12.835 12.3125 12.835 12.3125L4.8225 17.0625C4.8225 17.0625 4.285 17.3925 4.3675 17.805C4.45 18.2175 4.81 18.235 4.975 18.235C5.14 18.235 13.6875 18.19 14.185 18.175C14.8025 18.1575 14.65 19.035 14.65 19.035L9.24 27.54C9.24 27.54 6.8775 30.81 6.8775 31.0325C6.8775 31.36 7.2725 31.5225 7.64 31.3025C7.925 31.1325 26.35 15.52 27.1625 14.4475C27.3825 14.155 27.495 13.385 26.5875 13.385C25.68 13.385 18.4525 15.49 18.4525 15.49L17.42 13.51Z"
         fill="#FEB804"
@@ -192,12 +164,7 @@ export function H3Icon(props: IconProps) {
 
 export function JavaScriptIcon(props: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1052 1052"
-      fill="none"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1052 1052" fill="none" {...props}>
       <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
       <path
         d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
@@ -209,12 +176,7 @@ export function JavaScriptIcon(props: IconProps) {
 
 export function NextJsIcon(props: IconProps) {
   return (
-    <svg
-      viewBox="0 0 180 180"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <mask
         id="mask0_408_139"
         style={{ maskType: "alpha" }}
@@ -227,25 +189,12 @@ export function NextJsIcon(props: IconProps) {
         <circle cx="90" cy="90" r="90" fill="black" />
       </mask>
       <g mask="url(#mask0_408_139)">
-        <circle
-          cx="90"
-          cy="90"
-          r="87"
-          fill="black"
-          stroke="white"
-          strokeWidth={6}
-        />
+        <circle cx="90" cy="90" r="87" fill="black" stroke="white" strokeWidth={6} />
         <path
           d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
           fill="url(#paint0_linear_408_139)"
         />
-        <rect
-          x="115"
-          y="54"
-          width="12"
-          height="72"
-          fill="url(#paint1_linear_408_139)"
-        />
+        <rect x="115" y="54" width="12" height="72" fill="url(#paint1_linear_408_139)" />
       </g>
       <defs>
         <linearGradient
@@ -316,46 +265,22 @@ export function SolidJsIcon(props: IconProps) {
       {...props}
     >
       <defs>
-        <linearGradient
-          x1="-5.859%"
-          y1="38.27%"
-          x2="91.406%"
-          y2="60.924%"
-          id="a"
-        >
+        <linearGradient x1="-5.859%" y1="38.27%" x2="91.406%" y2="60.924%" id="a">
           <stop stopColor="#76B3E1" offset="10%" />
           <stop stopColor="#DCF2FD" offset="30%" />
           <stop stopColor="#76B3E1" offset="100%" />
         </linearGradient>
-        <linearGradient
-          x1="56.996%"
-          y1="38.44%"
-          x2="37.941%"
-          y2="68.375%"
-          id="b"
-        >
+        <linearGradient x1="56.996%" y1="38.44%" x2="37.941%" y2="68.375%" id="b">
           <stop stopColor="#76B3E1" offset="0%" />
           <stop stopColor="#4377BB" offset="50%" />
           <stop stopColor="#1F3B77" offset="100%" />
         </linearGradient>
-        <linearGradient
-          x1="10.709%"
-          y1="34.532%"
-          x2="104.337%"
-          y2="70.454%"
-          id="c"
-        >
+        <linearGradient x1="10.709%" y1="34.532%" x2="104.337%" y2="70.454%" id="c">
           <stop stopColor="#315AA9" offset="0%" />
           <stop stopColor="#518AC8" offset="50%" />
           <stop stopColor="#315AA9" offset="100%" />
         </linearGradient>
-        <linearGradient
-          x1="61.993%"
-          y1="29.58%"
-          x2="17.762%"
-          y2="105.119%"
-          id="d"
-        >
+        <linearGradient x1="61.993%" y1="29.58%" x2="17.762%" y2="105.119%" id="d">
           <stop stopColor="#4377BB" offset="0%" />
           <stop stopColor="#1A336B" offset="50%" />
           <stop stopColor="#1A336B" offset="100%" />
@@ -684,30 +609,16 @@ export function VueIcon(props: IconProps) {
       preserveAspectRatio="xMidYMid"
       {...props}
     >
-      <path
-        d="M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36Z"
-        fill="#41B883"
-      />
-      <path
-        d="m0 0 128 220.8L256 0h-51.2L128 132.48 50.56 0H0Z"
-        fill="#41B883"
-      />
-      <path
-        d="M50.56 0 128 133.12 204.8 0h-47.36L128 51.2 97.92 0H50.56Z"
-        fill="#35495E"
-      />
+      <path d="M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36Z" fill="#41B883" />
+      <path d="m0 0 128 220.8L256 0h-51.2L128 132.48 50.56 0H0Z" fill="#41B883" />
+      <path d="M50.56 0 128 133.12 204.8 0h-47.36L128 51.2 97.92 0H50.56Z" fill="#35495E" />
     </svg>
   );
 }
 
 export function WinterCGIcon(props: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-      fill="none"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" {...props}>
       <path
         d="M50 95c24.853 0 45-20.147 45-45S74.853 5 50 5 5 25.147 5 50s20.147 45 45 45Z"
         fill="#fff"

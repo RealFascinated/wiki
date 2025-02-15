@@ -1,5 +1,15 @@
 "use client";
 
+import { type Result } from "@/lib/mdx/search";
+import {
+  createAutocomplete,
+  type AutocompleteApi,
+  type AutocompleteCollection,
+  type AutocompleteState,
+} from "@algolia/autocomplete-core";
+import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
+import clsx from "clsx";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   forwardRef,
   Fragment,
@@ -10,25 +20,10 @@ import {
   useRef,
   useState,
 } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type Result } from "@/mdx/search";
-import { navigation } from "@/site-config";
-import {
-  createAutocomplete,
-  type AutocompleteApi,
-  type AutocompleteCollection,
-  type AutocompleteState,
-} from "@algolia/autocomplete-core";
-import {
-  Dialog,
-  DialogPanel,
-  Transition,
-  TransitionChild,
-} from "@headlessui/react";
-import clsx from "clsx";
 import Highlighter from "react-highlight-words";
 
 import { LoadingIcon, NoResultsIcon, SearchIcon } from "./icons";
+import { config } from "@/site-config";
 
 type EmptyObject = Record<string, never>;
 
@@ -42,9 +37,9 @@ type Autocomplete = AutocompleteApi<
 function useAutocomplete({ close }: { close: () => void }) {
   let id = useId();
   let router = useRouter();
-  let [autocompleteState, setAutocompleteState] = useState<
-    AutocompleteState<Result> | EmptyObject
-  >({});
+  let [autocompleteState, setAutocompleteState] = useState<AutocompleteState<Result> | EmptyObject>(
+    {}
+  );
 
   function navigate({ itemUrl }: { itemUrl?: string }) {
     if (!itemUrl) {
@@ -53,21 +48,13 @@ function useAutocomplete({ close }: { close: () => void }) {
 
     router.push(itemUrl);
 
-    if (
-      itemUrl ===
-      window.location.pathname + window.location.search + window.location.hash
-    ) {
+    if (itemUrl === window.location.pathname + window.location.search + window.location.hash) {
       close();
     }
   }
 
   let [autocomplete] = useState<Autocomplete>(() =>
-    createAutocomplete<
-      Result,
-      React.SyntheticEvent,
-      React.MouseEvent,
-      React.KeyboardEvent
-    >({
+    createAutocomplete<Result, React.SyntheticEvent, React.MouseEvent, React.KeyboardEvent>({
       id,
       placeholder: "Find something...",
       defaultActiveItemId: 0,
@@ -81,7 +68,7 @@ function useAutocomplete({ close }: { close: () => void }) {
         navigate,
       },
       getSources({ query }) {
-        return import("@/mdx/search").then(({ search }) => {
+        return import("@/lib/mdx/search").then(({ search }) => {
           return [
             {
               sourceId: "documentation",
@@ -96,7 +83,7 @@ function useAutocomplete({ close }: { close: () => void }) {
           ];
         });
       },
-    }),
+    })
   );
 
   return { autocomplete, autocompleteState };
@@ -105,7 +92,7 @@ function useAutocomplete({ close }: { close: () => void }) {
 function HighlightQuery({ text, query }: { text: string; query: string }) {
   return (
     <Highlighter
-      highlightClassName="underline bg-transparent text-red-500"
+      highlightClassName="underline bg-transparent text-purple-500"
       searchWords={[query]}
       autoEscape={true}
       textToHighlight={text}
@@ -128,18 +115,18 @@ function SearchResult({
 }) {
   let id = useId();
 
-  let sectionTitle = navigation.find((section) =>
-    section.links.find((link) => link.href === result.url.split("#")[0]),
+  let sectionTitle = config.navigation.find(section =>
+    section.links.find(link => link.href === result.url.split("#")[0])
   )?.title;
   let hierarchy = [sectionTitle, result.pageTitle].filter(
-    (x): x is string => typeof x === "string",
+    (x): x is string => typeof x === "string"
   );
 
   return (
     <li
       className={clsx(
         "group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50",
-        resultIndex > 0 && "border-t border-zinc-100 dark:border-zinc-800",
+        resultIndex > 0 && "border-t border-zinc-100 dark:border-zinc-800"
       )}
       aria-labelledby={`${id}-hierarchy ${id}-title`}
       {...autocomplete.getItemProps({
@@ -150,7 +137,7 @@ function SearchResult({
       <div
         id={`${id}-title`}
         aria-hidden="true"
-        className="text-sm font-medium text-zinc-900 group-aria-selected:text-red-500 dark:text-white"
+        className="text-sm font-medium text-zinc-900 group-aria-selected:text-purple-300 dark:text-white"
       >
         <HighlightQuery text={result.title} query={query} />
       </div>
@@ -238,10 +225,10 @@ const SearchInput = forwardRef<
         data-autofocus
         className={clsx(
           "flex-auto appearance-none bg-transparent pl-10 text-zinc-900 outline-none placeholder:text-zinc-500 focus:w-full focus:flex-none sm:text-sm dark:text-white [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden",
-          autocompleteState.status === "stalled" ? "pr-11" : "pr-4",
+          autocompleteState.status === "stalled" ? "pr-11" : "pr-4"
         )}
         {...inputProps}
-        onKeyDown={(event) => {
+        onKeyDown={event => {
           if (
             event.key === "Escape" &&
             !autocompleteState.isOpen &&
@@ -261,7 +248,7 @@ const SearchInput = forwardRef<
       />
       {autocompleteState.status === "stalled" && (
         <div className="absolute inset-y-0 right-3 flex items-center">
-          <LoadingIcon className="h-5 w-5 animate-spin stroke-zinc-200 text-zinc-900 dark:stroke-zinc-800 dark:text-red-400" />
+          <LoadingIcon className="h-5 w-5 animate-spin stroke-zinc-200 text-zinc-900 dark:stroke-zinc-800 dark:text-purple-400" />
         </div>
       )}
     </div>
@@ -317,10 +304,7 @@ function SearchDialog({
 
   return (
     <Transition show={open} afterLeave={() => autocomplete.setQuery("")}>
-      <Dialog
-        onClose={setOpen}
-        className={clsx("fixed inset-0 z-50", className)}
-      >
+      <Dialog onClose={setOpen} className={clsx("fixed inset-0 z-50", className)}>
         <TransitionChild
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -393,13 +377,12 @@ function useSearchProps() {
       open,
       setOpen: useCallback(
         (open: boolean) => {
-          let { width = 0, height = 0 } =
-            buttonRef.current?.getBoundingClientRect() ?? {};
+          let { width = 0, height = 0 } = buttonRef.current?.getBoundingClientRect() ?? {};
           if (!open || (width !== 0 && height !== 0)) {
             setOpen(open);
           }
         },
-        [setOpen],
+        [setOpen]
       ),
     },
   };
@@ -410,9 +393,7 @@ export function Search() {
   let { buttonProps, dialogProps } = useSearchProps();
 
   useEffect(() => {
-    setModifierKey(
-      /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "⌘" : "Ctrl ",
-    );
+    setModifierKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "⌘" : "Ctrl ");
   }, []);
 
   return (

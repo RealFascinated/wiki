@@ -1,11 +1,9 @@
 import headlessuiPlugin from "@headlessui/tailwindcss";
 import typographyPlugin from "@tailwindcss/typography";
 
-import { withUt } from "uploadthing/tw";
-
 import typographyStyles from "./typography";
 
-export default withUt({
+export default {
   content: ["./src/**/*.{js,mjs,jsx,ts,tsx,mdx}"],
   darkMode: "selector",
   theme: {
@@ -45,4 +43,4 @@ export default withUt({
     },
   },
   plugins: [typographyPlugin, headlessuiPlugin],
-});
+};

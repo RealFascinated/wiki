@@ -39,9 +39,7 @@ function truncateWordsFn(str: string, maxCharacters: number) {
   return truncated.slice(0, lastSpace) + " …";
 }
 function truncatedWordSchema(opts: { maxCharacters: number }) {
-  return z
-    .string()
-    .transform((str) => truncateWordsFn(str, opts.maxCharacters));
+  return z.string().transform(str => truncateWordsFn(str, opts.maxCharacters));
 }
 
 export const docsParams = zodParams(
@@ -49,16 +47,7 @@ export const docsParams = zodParams(
     title: z.string(),
     category: z.string(),
     description: truncatedWordSchema({ maxCharacters: 215 }),
-  }),
-);
-
-export const blogParams = zodParams(
-  z.object({
-    authors: z.array(
-      z.object({ name: z.string(), role: z.string(), src: z.string() }),
-    ),
-    title: z.string(),
-  }),
+  })
 );
 
 export const getFont = async <const TWeights extends readonly number[]>({
@@ -72,7 +61,7 @@ export const getFont = async <const TWeights extends readonly number[]>({
 }) => {
   const sorted = [...weights].sort();
   const API = `https://fonts.googleapis.com/css2?family=${family}:wght@${sorted.join(
-    ";",
+    ";"
   )}${text ? `&text=${encodeURIComponent(text)}` : ""}`;
 
   const css = (await (
@@ -88,22 +77,17 @@ export const getFont = async <const TWeights extends readonly number[]>({
   const fonts = css
     .split("@font-face {")
     .splice(1)
-    .map((font) => {
+    .map(font => {
       const u = font.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/);
       const w = font.match(/font-weight: (\d+)/);
       return u?.[1] && w?.[1] ? { url: u[1], weight: parseInt(w[1]) } : null;
     })
-    .filter(
-      (font): font is { url: string; weight: TWeights[number] } => !!font,
-    );
+    .filter((font): font is { url: string; weight: TWeights[number] } => !!font);
 
-  const promises = fonts.map(async (font) => {
+  const promises = fonts.map(async font => {
     const res = await fetch(font.url);
     return [font.weight, await res.arrayBuffer()];
   });
 
-  return Object.fromEntries(await Promise.all(promises)) as Record<
-    TWeights[number],
-    ArrayBuffer
-  >;
+  return Object.fromEntries(await Promise.all(promises)) as Record<TWeights[number], ArrayBuffer>;
 };

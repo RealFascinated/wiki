@@ -7,9 +7,9 @@ const variantStyles = {
 
 const colorStyles = {
   red: {
-    small: "text-red-500 dark:text-red-400",
+    small: "text-purple-500 dark:text-purple-400",
     medium:
-      "ring-red-300 dark:ring-red-400/30 bg-red-400/10 text-red-700 dark:text-red-400",
+      "ring-purple-300 dark:ring-purple-400/30 bg-purple-400/10 text-purple-700 dark:text-purple-400",
   },
   sky: {
     small: "text-sky-500",
@@ -22,9 +22,9 @@ const colorStyles = {
       "ring-amber-300 bg-amber-400/10 text-amber-700 dark:ring-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400",
   },
   rose: {
-    small: "text-red-500 dark:text-rose-500",
+    small: "text-purple-500 dark:text-rose-500",
     medium:
-      "ring-rose-200 bg-rose-50 text-red-700 dark:ring-rose-500/20 dark:bg-rose-400/10 dark:text-rose-400",
+      "ring-rose-200 bg-rose-50 text-purple-700 dark:ring-rose-500/20 dark:bg-rose-400/10 dark:text-rose-400",
   },
   zinc: {
     small: "text-zinc-400 dark:text-zinc-500",
@@ -64,7 +64,7 @@ export function Tag({
         "font-mono text-[0.625rem] font-semibold leading-6",
         variantStyles[variant],
         colorStyles[color][variant],
-        className,
+        className
       )}
     >
       {children}
