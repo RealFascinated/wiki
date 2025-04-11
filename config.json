@@ -1,16 +1,16 @@
 {
-  "siteName": "Pulse App",
-  "ogApiUrl": "https://docs.pulseapp.cc/api/og?title={title}",
+  "siteName": "Fascinated's Wiki",
+  "ogApiUrl": "https://wiki.fascinated.cc/api/og?title={title}",
   "metadata": {
     "title": {
-      "default": "Pulse Docs",
-      "template": "%s • Pulse Docs"
+      "default": "Fascinated's Wiki",
+      "template": "%s • Fascinated's Wiki"
     },
-    "description": "A lightweight service monitoring solution for tracking the availability of whatever service your heart desires!",
+    "description": "Wiki for Homelabbers and related projects",
     "openGraph": {
       "images": [
         {
-          "url": "https://pulseapp.cc/media/logo.png",
+          "url": "https://wiki.fascinated.cc/media/logo.png",
           "width": 128,
           "height": 128
         }
@@ -30,59 +30,33 @@
       "name": "GitHub",
       "tooltip": "View our Github",
       "logo": "./github.svg",
-      "href": "https://github.com/PulseAppCC",
+      "href": "https://github.com/FascinatedCC",
       "navbar": true
     },
     {
       "name": "Discord",
       "tooltip": "Join our Discord",
       "logo": "./discord.svg",
-      "href": "https://discord.pulseapp.cc",
+      "href": "https://discord.fascinated.cc",
       "navbar": true
     },
     {
       "name": "Email",
       "tooltip": "Email us",
       "logo": "Mail",
-      "href": "mailto:support@pulseapp.cc",
+      "href": "mailto:liam@fascinated.cc",
       "navbar": false
     }
   ],
   "footer": {
-    "homeUrl": "https://pulseapp.cc",
+    "homeUrl": "https://fascinated.cc",
     "links": {
       "Resources": [
         {
-          "name": "Support",
-          "href": "https://support.pulseapp.cc"
-        },
-        {
-          "name": "Jobs",
-          "href": "https://jobs.pulseapp.cc"
-        },
-        {
-          "name": "Developers",
-          "shortName": "Devs",
-          "href": "https://dev.pulseapp.cc",
-          "external": true
-        },
-        {
           "name": "System Status",
           "shortName": "Status",
-          "href": "https://status.pulseapp.cc",
+          "href": "https://status.fascinated.cc",
           "external": true
-        }
-      ],
-      "Legal": [
-        {
-          "name": "Terms & Conditions",
-          "shortName": "Terms",
-          "href": "/legal/terms"
-        },
-        {
-          "name": "Privacy Policy",
-          "shortName": "Privacy",
-          "href": "/legal/privacy"
         }
       ]
     }
