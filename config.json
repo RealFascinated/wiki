@@ -23,14 +23,14 @@
   "viewport": {
     "themeColor": "#A855F7"
   },
-  "contentSource": "https://git.rainnny.club/PulseApp/docs-content.git",
-  "contentEditUrl": "https://git.rainnny.club/PulseApp/docs-content/src/branch/master/{slug}{ext}",
+  "contentSource": "/docs",
+  "contentEditUrl": "https://github.com/fascinated/wiki/blob/master/{slug}{ext}",
   "socialLinks": [
     {
       "name": "GitHub",
       "tooltip": "View our Github",
       "logo": "./github.svg",
-      "href": "https://github.com/FascinatedCC",
+      "href": "https://github.com/realfascinated",
       "navbar": true
     },
     {
