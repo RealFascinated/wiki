@@ -1,4 +1,5 @@
 import ImageViewer from "@/components/image-viewer";
+import { getDocsContent } from "@/lib/mdx";
 import { capitalizeWords } from "@/lib/string";
 import { cn } from "@/lib/utils";
 import {
@@ -7,16 +8,16 @@ import {
   Lightbulb,
   MessageSquareWarning,
   OctagonAlert,
-  TriangleAlert,
+  TriangleAlert
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { isValidElement, ReactElement, ReactNode } from "react";
-import remarkGfm from "remark-gfm";
-import { MDXRemote } from "remote-mdx/rsc";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { getDocsContent } from "@/lib/mdx";
+import remarkGfm from "remark-gfm";
+import { MDXRemote } from "remote-mdx/rsc";
+import { CopyButton } from "./copy-button";
 
 const RecentDocs = async (): Promise<ReactElement> => {
   const pages = await getDocsContent();
@@ -143,23 +144,28 @@ const components = {
   // Code
   code: ({ children, className }: { children: ReactNode; className?: string }): ReactElement => {
     const match = /language-(\w+)/.exec(className || "");
+    const codeString = String(children).replace(/\n$/, "");
+    
     return match ? (
-      <SyntaxHighlighter
-        style={vscDarkPlus}
-        language={match[1]}
-        PreTag="div"
-        className="rounded-md my-4"
-        showLineNumbers
-        customStyle={{
-          margin: 0,
-          padding: "1rem",
-          fontSize: "0.875rem",
-          lineHeight: "1.5",
-          backgroundColor: "#0D1117",
-        }}
-      >
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
+      <div className="relative group">
+        <CopyButton text={codeString} />
+        <SyntaxHighlighter
+          style={vscDarkPlus}
+          language={match[1]}
+          PreTag="div"
+          className="rounded-md my-4"
+          showLineNumbers
+          customStyle={{
+            margin: 0,
+            padding: "1rem",
+            fontSize: "0.875rem",
+            lineHeight: "1.5",
+            backgroundColor: "var(--secondary)",
+          }}
+        >
+          {codeString}
+        </SyntaxHighlighter>
+      </div>
     ) : (
       <code className="relative rounded bg-[#0D1117] px-[0.3rem] py-[0.2rem] font-mono text-sm text-[#E6EDF3]">
         {children}
