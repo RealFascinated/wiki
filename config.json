@@ -23,8 +23,8 @@
   "viewport": {
     "themeColor": "#A855F7"
   },
-  "contentSource": "/docs",
-  "contentEditUrl": "https://github.com/fascinated/wiki/blob/master/{slug}{ext}",
+  "contentSource": "./docs",
+  "contentEditUrl": "https://github.com/realfascinated/wiki/blob/master/{slug}{ext}",
   "socialLinks": [
     {
       "name": "GitHub",

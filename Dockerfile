@@ -1,46 +1,46 @@
-FROM imbios/bun-node AS base
+FROM oven/bun:1.2.9-slim AS base
 
-
-# Install dependencies
-FROM base AS depends
-WORKDIR /usr/src/app
-COPY package.json* bun.lockb* ./
+# Build stage
+FROM base AS builder
+WORKDIR /app
+COPY package.json* bun.lock* ./
 RUN bun install --frozen-lockfile --quiet
 
-
-# Build the app
-FROM base AS builder
-WORKDIR /usr/src/app
-COPY --from=depends /usr/src/app/node_modules ./node_modules
+# Copy source and build the app
 COPY . .
-ENV NEXT_TELEMETRY_DISABLED=1
-RUN bun run build
+RUN bun run build && rm -rf .git .github .next/cache/*
 
+# Production dependencies stage
+FROM base AS prod-deps
+WORKDIR /app
+COPY package.json* bun.lock* ./
+RUN apt-get update && apt-get install -y curl && \
+    bun install --frozen-lockfile --production --quiet && \
+    curl -sf https://gobinaries.com/tj/node-prune | sh && \
+    node-prune && \
+    rm -rf node_modules/next-runtime-env/node_modules/next && \
+    apt-get purge -y curl && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
-# Run the app
-FROM base AS runner
-WORKDIR /usr/src/app
+# Final smaller image with Alpine
+FROM oven/bun:1.2.9-alpine AS runner
+WORKDIR /app
 
-RUN addgroup --system --gid 1007 nextjs
-RUN adduser --system --uid 1007 nextjs
+# Copy only the production dependencies
+COPY --from=prod-deps /app/node_modules ./node_modules
 
-RUN mkdir .next
-RUN chown nextjs:nextjs .next
+# Copy only necessary build artifacts
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/next.config.ts ./next.config.ts
+COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./
 
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/.next ./.next
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/public ./public
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/next.config.mjs ./next.config.mjs
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/package.json ./package.json
-COPY --from=builder --chown=nextjs:nextjs /usr/src/app/docs ./docs
-
-ENV NODE_ENV=production
-
-# Exposting on port 80 so we can
-# access via a reverse proxy for Dokku
+ENV NEXT_PUBLIC_APP_ENV=production
 ENV HOSTNAME="0.0.0.0"
-EXPOSE 80
-ENV PORT=80
+EXPOSE 3000
+ENV PORT=3000
 
-USER nextjs
-CMD ["node", "server.js"]
+CMD ["bun", "run", "start"]
