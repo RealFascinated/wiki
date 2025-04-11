@@ -24,25 +24,25 @@
     "themeColor": "#A855F7"
   },
   "contentSource": "./docs",
-  "contentEditUrl": "https://github.com/realfascinated/wiki/blob/master/{slug}{ext}",
+  "contentEditUrl": "https://github.com/realfascinated/wiki/blob/master/docs/{slug}{ext}",
   "socialLinks": [
     {
       "name": "GitHub",
-      "tooltip": "View our Github",
+      "tooltip": "View my Github",
       "logo": "./github.svg",
       "href": "https://github.com/realfascinated",
       "navbar": true
     },
     {
       "name": "Discord",
-      "tooltip": "Join our Discord",
+      "tooltip": "Join my Discord",
       "logo": "./discord.svg",
       "href": "https://discord.fascinated.cc",
       "navbar": true
     },
     {
       "name": "Email",
-      "tooltip": "Email us",
+      "tooltip": "Email me",
       "logo": "Mail",
       "href": "mailto:liam@fascinated.cc",
       "navbar": false
