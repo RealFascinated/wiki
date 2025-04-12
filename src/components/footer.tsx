@@ -63,11 +63,12 @@ const Branding = () => (
     draggable={false}
   >
     <Image
-      src="/media/logo.png"
+      src="https://cdn.fascinated.cc/v3mcsT0F.jpg"
       alt={`${config.siteName} Logo`}
       width={40}
       height={40}
       draggable={false}
+      className="rounded-md"
     />
     <h1 className="text-xl font-bold">{config.siteName}</h1>
   </Link>

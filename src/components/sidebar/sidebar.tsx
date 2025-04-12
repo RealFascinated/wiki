@@ -9,7 +9,7 @@ import { ReactElement } from "react";
 const Sidebar = ({ pages }: { pages: DocsContentMetadata[] }): ReactElement => (
   <>
     {/* Mobile */}
-    <div className="xs:hidden">
+    <div className="md:hidden">
       <Sheet>
         <SheetTrigger className="flex items-center">
           <AlignRightIcon className="w-6 h-6" />
@@ -21,7 +21,7 @@ const Sidebar = ({ pages }: { pages: DocsContentMetadata[] }): ReactElement => (
     </div>
 
     {/* Desktop */}
-    <div className="hidden xs:flex sticky top-[4.5rem] max-h-[calc(100vh-4.5rem)] min-w-56 w-64 lg:w-72 py-5 pb-3 flex-col justify-between transition-all transform-gpu overflow-y-auto">
+    <div className="hidden md:flex sticky top-[4.5rem] max-h-[calc(100vh-4.5rem)] min-w-56 w-64 lg:w-72 py-5 pb-3 flex-col justify-between transition-all transform-gpu overflow-y-auto">
       <SidebarContent pages={pages} />
     </div>
   </>
@@ -35,7 +35,7 @@ const SidebarContent = ({
   <div className="h-full flex flex-col justify-between">
     {/* Top */}
     <div className="flex flex-col">
-      <div className="xs:hidden pb-3">
+      <div className="md:hidden pb-3">
         <QuickSearchDialog pages={pages} />
       </div>
       <SidebarLinks pages={pages} />

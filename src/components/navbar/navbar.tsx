@@ -11,20 +11,27 @@ import { ReactElement } from "react";
 
 const Navbar = ({ pages }: { pages: DocsContentMetadata[] }): ReactElement => (
   <nav className="fixed left-0 inset-x-0 bg-white/95 dark:bg-white/[0.007] backdrop-saturate-100 backdrop-blur-xl border-b z-50">
-    <div className="px-3 md:px-7 max-w-(--breakpoint-2xl) mx-auto py-4 flex justify-between items-center transition-all transform-gpu">
+    <div className="px-3 md:px-7 max-w-[1700px] mx-auto py-4 flex justify-between items-center transition-all transform-gpu">
       {/* Branding */}
       <Link
-        className="flex gap-1 items-end hover:opacity-75 transition-all transform-gpu select-none"
+        className="flex gap-2 items-center hover:opacity-75 transition-all transform-gpu select-none"
         href="/"
         draggable={false}
       >
+        <Image
+          src="https://cdn.fascinated.cc/v3mcsT0F.jpg"
+          alt={config.siteName}
+          width={32}
+          height={32}
+          className="rounded-lg"
+        />
         <h1 className="text-lg font-semibold">{config.siteName}</h1>
       </Link>
 
       {/* Right */}
       <div className="flex gap-5 sm:gap-7 items-center transition-all transform-gpu">
         {/* Search */}
-        <div className="hidden xs:flex">
+        <div className="hidden md:flex">
           <QuickSearchDialog pages={pages} bindKeybind />
         </div>
 
@@ -38,7 +45,7 @@ const Navbar = ({ pages }: { pages: DocsContentMetadata[] }): ReactElement => (
         </div>
 
         {/* Mobile Sidebar */}
-        <div className="flex xs:hidden">
+        <div className="flex md:hidden">
           <Sidebar pages={pages} />
         </div>
       </div>
