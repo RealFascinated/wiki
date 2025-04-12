@@ -21,9 +21,17 @@ const SidebarLinks = ({
   const tree = useMemo(() => buildTree(pages), [pages]);
   return (
     <div className="flex flex-col gap-1">
-      {Object.values(tree).map((node: TreeNode) => (
-        <CategoryItem key={node.slug} pages={pages} node={node} />
-      ))}
+      {Object.values(tree)
+        .sort((a, b) => {
+          // Put uncategorized documents first
+          if (!a.isFolder && b.isFolder) return -1;
+          if (a.isFolder && !b.isFolder) return 1;
+          // Then sort alphabetically
+          return a.title.localeCompare(b.title);
+        })
+        .map((node: TreeNode) => (
+          <CategoryItem key={node.slug} pages={pages} node={node} />
+        ))}
     </div>
   );
 };
@@ -115,15 +123,23 @@ const CategoryItem = ({
                   ease: [0.04, 0.62, 0.23, 0.98],
                 }}
               >
-                {Object.values(node.children).map((child, index, array) => (
-                  <CategoryItem
-                    key={child.slug}
-                    pages={pages}
-                    node={child}
-                    depth={depth + 1}
-                    isLast={index === array.length - 1}
-                  />
-                ))}
+                {Object.values(node.children)
+                  .sort((a, b) => {
+                    // Put uncategorized documents first
+                    if (!a.isFolder && b.isFolder) return -1;
+                    if (a.isFolder && !b.isFolder) return 1;
+                    // Then sort alphabetically
+                    return a.title.localeCompare(b.title);
+                  })
+                  .map((child, index, array) => (
+                    <CategoryItem
+                      key={child.slug}
+                      pages={pages}
+                      node={child}
+                      depth={depth + 1}
+                      isLast={index === array.length - 1}
+                    />
+                  ))}
               </motion.div>
             </CollapsibleContent>
           )}
