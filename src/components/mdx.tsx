@@ -147,24 +147,32 @@ const components = {
     const codeString = String(children).replace(/\n$/, "");
     
     return match ? (
-      <div className="relative group">
+      <div className="relative group w-full">
         <CopyButton text={codeString} />
-        <SyntaxHighlighter
-          style={vscDarkPlus}
-          language={match[1]}
-          PreTag="div"
-          className="rounded-md my-4"
-          showLineNumbers
-          customStyle={{
-            margin: 0,
-            padding: "1rem",
-            fontSize: "0.875rem",
-            lineHeight: "1.5",
-            backgroundColor: "var(--secondary)",
-          }}
-        >
-          {codeString}
-        </SyntaxHighlighter>
+        <div className="w-full overflow-x-auto">
+          <div className="min-w-0 max-w-[calc(100vw-2rem)]">
+            <SyntaxHighlighter
+              style={vscDarkPlus}
+              language={match[1]}
+              PreTag="div"
+              className="rounded-md my-4 font-mono"
+              showLineNumbers
+              customStyle={{
+                margin: 0,
+                padding: "1rem",
+                fontSize: "0.875rem",
+                lineHeight: "1.5",
+                backgroundColor: "var(--secondary)",
+                overflowX: "auto",
+                width: "100%",
+                maxWidth: "calc(100vw - 2rem)",
+                boxSizing: "border-box",
+              }}
+            >
+              {codeString}
+            </SyntaxHighlighter>
+          </div>
+        </div>
       </div>
     ) : (
       <code className="relative rounded bg-[#0D1117] px-[0.3rem] py-[0.2rem] font-mono text-sm text-[#E6EDF3]">

@@ -22,7 +22,7 @@ export const CopyButton = ({ text }: CopyButtonProps): ReactElement => {
     <SimpleTooltip content="Copy contents">
         <button
       onClick={copyToClipboard}
-      className="absolute right-2 top-2 p-2 rounded-md bg-[#0D1117] hover:bg-[#161B22] transition-colors"
+      className="absolute right-2 top-2 p-2 rounded-md bg-[#0D1117]/70 hover:bg-[#161B22]/70 transition-colors"
     >
       {copied ? (
         <Check className="w-4 h-4 text-green-500" />
