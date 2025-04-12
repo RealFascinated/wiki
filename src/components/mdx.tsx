@@ -27,9 +27,9 @@ const RecentDocs = async (): Promise<ReactElement> => {
     .slice(0, 10);
 
   return (
-    <ul className="my-4 ml-6 list-disc [&>li]:mt-2">
+    <ul className="mb-4 ml-6 list-disc [&>li]:mt-2 mr-6">
       {recentDocs.map((doc) => (
-        <li key={doc.slug} className="leading-7 flex justify-between items-center">
+        <li key={doc.slug} className="leading-7 flex justify-between items-center gap-2">
           <Link href={`/${doc.slug}`} className="text-primary hover:text-primary/80 transition-colors underline underline-offset-4">
             {doc.title}
           </Link>
@@ -71,12 +71,12 @@ const blockquoteStyles: { [key: string]: any } = {
 const components = {
   // Headings
   h1: ({ children }: { children: ReactNode }): ReactElement => (
-    <Heading as="h1" size={1} className="text-3xl font-bold border-b border-border pb-3 mb-6">
+    <Heading as="h1" size={1} className="text-3xl font-bold border-b border-border pb-3 mb-3">
       {children}
     </Heading>
   ),
   h2: ({ children }: { children: ReactNode }): ReactElement => (
-    <Heading as="h2" size={2} className="text-2xl font-bold border-b border-border pb-3 mb-4">
+    <Heading as="h2" size={2} className="text-2xl font-bold border-b border-border pb-3 mb-2">
       {children}
     </Heading>
   ),
