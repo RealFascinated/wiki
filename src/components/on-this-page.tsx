@@ -128,7 +128,7 @@ const OnThisPage = ({ page }: { page: DocsContentMetadata }): ReactElement => {
                 draggable={false}
                 className="block py-1"
               >
-                {truncateText(header.text, 20)}
+                {truncateText(header.text, 28)}
               </Link>
             </li>
           ))
