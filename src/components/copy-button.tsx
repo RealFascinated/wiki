@@ -1,7 +1,8 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
-import { ReactElement, useState } from "react";
+import { useState } from "react";
+import { Copy, Check } from "lucide-react";
+import { ReactElement } from "react";
 import SimpleTooltip from "./simple-tooltip";
 
 interface CopyButtonProps {
