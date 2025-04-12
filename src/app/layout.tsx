@@ -7,6 +7,7 @@ import config from "@/config";
 import { getDocsContent } from "@/lib/mdx";
 import type { Metadata, Viewport } from "next";
 import { ReactElement, ReactNode } from "react";
+import { ViewTransitions } from "next-view-transitions";
 import "./styles/globals.css";
 
 /**
@@ -27,34 +28,36 @@ const RootLayout = async ({
 }>): Promise<ReactElement> => {
   const pages: DocsContentMetadata[] = await getDocsContent();
   return (
-    <html lang="en">
-      <body
-        className="scroll-smooth antialiased"
-        style={{
-          background: "var(--background-gradient)",
-        }}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ViewTransitions>
+      <html lang="en">
+        <body
+          className="scroll-smooth antialiased"
+          style={{
+            background: "var(--background-gradient)",
+          }}
         >
-          <TooltipProvider delayDuration={100}>
-            <div className="px-3 md:px-7 max-w-[1700px] min-h-screen mx-auto flex flex-col transition-transform">
-              <Navbar pages={pages} />
-              <div className="pt-[4.5rem] w-full h-full flex grow gap-5 sm:gap-8 transition-transform transform-gpu">
-                <div className="relative hidden md:flex">
-                  <Sidebar pages={pages} />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TooltipProvider delayDuration={100}>
+              <div className="px-3 md:px-7 max-w-[1700px] min-h-screen mx-auto flex flex-col transition-transform">
+                <Navbar pages={pages} />
+                <div className="pt-[4.5rem] w-full h-full flex grow gap-5 sm:gap-8 transition-transform transform-gpu">
+                  <div className="relative hidden md:flex">
+                    <Sidebar pages={pages} />
+                  </div>
+                  {children}
                 </div>
-                {children}
               </div>
-            </div>
-            <Footer />
-          </TooltipProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+              <Footer />
+            </TooltipProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 };
 export default RootLayout;

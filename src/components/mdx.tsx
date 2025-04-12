@@ -11,7 +11,7 @@ import {
   TriangleAlert
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { isValidElement, ReactElement, ReactNode } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";

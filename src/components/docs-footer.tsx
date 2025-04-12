@@ -4,7 +4,7 @@ import SimpleTooltip from "@/components/simple-tooltip";
 import { Separator } from "@/components/ui/separator";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DateTime } from "luxon";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { ReactElement, useEffect, useState } from "react";
 
