@@ -140,3 +140,12 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-accent rounded-3xl;
 }
+
+/* Social Link Image */
+.social-link-image {
+  filter: invert(1);
+}
+
+.dark .social-link-image {
+  filter: none;
+}

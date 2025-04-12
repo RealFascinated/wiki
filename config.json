@@ -35,6 +35,7 @@
       "tooltip": "View my Github",
       "logo": "./github.svg",
       "href": "https://github.com/realfascinated",
+      "darkInvert": true,
       "navbar": true
     },
     {

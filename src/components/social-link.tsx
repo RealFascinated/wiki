@@ -16,6 +16,7 @@ const SocialLink = ({
   tooltip,
   logo,
   href,
+  darkInvert = false,
 }: SocialLinkProps) => (
   <SimpleTooltip content={tooltip}>
     <Link
@@ -33,6 +34,7 @@ const SocialLink = ({
           alt={`${name}'s Logo`}
           fill
           draggable={false}
+          className={darkInvert ? "social-link-image" : ""}
         />
       ) : (
         <Icon

@@ -83,6 +83,11 @@ export type SocialLinkType = {
    * Whether to show this social link in the navbar.
    */
   navbar: boolean;
+
+  /**
+   * Whether to invert the logo in dark mode.
+   */
+  darkInvert?: boolean;
 };
 
 export type FooterLink = {
