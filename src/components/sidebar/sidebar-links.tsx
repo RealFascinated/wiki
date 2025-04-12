@@ -79,14 +79,18 @@ const CategoryItem = ({
             <Button
               className={cn(
                 `relative w-full px-2 h-auto min-h-9 py-1.5 hover:bg-accent/35 hover:opacity-90 text-left`,
-                node.isFolder ? "mb-0.5 text-sm font-semibold" : "text-sm lg:text-sm",
+                node.isFolder
+                  ? "mb-0.5 text-sm font-semibold"
+                  : "text-sm lg:text-sm",
                 depth > 0 && "pl-4",
                 active && "text-primary/95 font-semibold hover:text-primary"
               )}
               variant="ghost"
             >
               <div className="flex items-start justify-between w-full gap-2">
-                <span className="flex-1 break-words whitespace-normal">{node.title}</span>
+                <span className="flex-1 break-words whitespace-normal">
+                  {node.title}
+                </span>
                 {hasChildren && (
                   <motion.div
                     initial={false}

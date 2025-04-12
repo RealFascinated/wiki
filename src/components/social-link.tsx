@@ -3,8 +3,8 @@ import Icon from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 import { SocialLinkType } from "@/types/config";
 import { icons } from "lucide-react";
-import Image from "next/image";
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 
 type SocialLinkProps = SocialLinkType & {
   className?: string | undefined;

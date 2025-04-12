@@ -6,8 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import config from "@/config";
 import { getDocsContent } from "@/lib/mdx";
 import type { Metadata, Viewport } from "next";
-import { ReactElement, ReactNode } from "react";
 import { ViewTransitions } from "next-view-transitions";
+import { ReactElement, ReactNode } from "react";
 import "./styles/globals.css";
 
 /**

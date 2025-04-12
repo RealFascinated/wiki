@@ -7,10 +7,12 @@
       "template": "%s • Fascinated's Wiki"
     },
     "description": "Wiki for Homelabbers and related projects",
-    "icons": [{
-      "rel": "icon",
-      "url": "https://cdn.fascinated.cc/v3mcsT0F.jpg"
-    }],
+    "icons": [
+      {
+        "rel": "icon",
+        "url": "https://cdn.fascinated.cc/v3mcsT0F.jpg"
+      }
+    ],
     "openGraph": {
       "images": [
         {

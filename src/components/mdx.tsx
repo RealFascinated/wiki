@@ -8,10 +8,10 @@ import {
   Lightbulb,
   MessageSquareWarning,
   OctagonAlert,
-  TriangleAlert
+  TriangleAlert,
 } from "lucide-react";
-import Image from "next/image";
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 import { isValidElement, ReactElement, ReactNode } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -22,15 +22,23 @@ import { CopyButton } from "./copy-button";
 const RecentDocs = async (): Promise<ReactElement> => {
   const pages = await getDocsContent();
   const recentDocs = pages
-    .filter((page) => page.title != "Welcome")
-    .sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime())
+    .filter(page => page.title != "Welcome")
+    .sort(
+      (a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime()
+    )
     .slice(0, 10);
 
   return (
     <ul className="mb-4 ml-6 list-disc [&>li]:mt-2 mr-6">
-      {recentDocs.map((doc) => (
-        <li key={doc.slug} className="leading-7 flex justify-between items-center gap-2">
-          <Link href={`/${doc.slug}`} className="text-primary hover:text-primary/80 transition-colors underline underline-offset-4">
+      {recentDocs.map(doc => (
+        <li
+          key={doc.slug}
+          className="leading-7 flex justify-between items-center gap-2"
+        >
+          <Link
+            href={`/${doc.slug}`}
+            className="text-primary hover:text-primary/80 transition-colors underline underline-offset-4"
+          >
             {doc.title}
           </Link>
           <span className="text-muted-foreground text-sm">
@@ -71,12 +79,20 @@ const blockquoteStyles: { [key: string]: any } = {
 const components = {
   // Headings
   h1: ({ children }: { children: ReactNode }): ReactElement => (
-    <Heading as="h1" size={1} className="text-3xl font-bold border-b border-border pb-3 mb-3">
+    <Heading
+      as="h1"
+      size={1}
+      className="text-3xl font-bold border-b border-border pb-3 mb-3"
+    >
       {children}
     </Heading>
   ),
   h2: ({ children }: { children: ReactNode }): ReactElement => (
-    <Heading as="h2" size={2} className="text-2xl font-bold border-b border-border pb-3 mb-2">
+    <Heading
+      as="h2"
+      size={2}
+      className="text-2xl font-bold border-b border-border pb-3 mb-2"
+    >
       {children}
     </Heading>
   ),
@@ -118,7 +134,9 @@ const components = {
     </Link>
   ),
   p: ({ children }: { children: ReactNode }): ReactElement => (
-    <p className="leading-7 [&:not(:first-child)]:mt-2 [&:not(:last-child)]:mb-2">{children}</p>
+    <p className="leading-7 [&:not(:first-child)]:mt-2 [&:not(:last-child)]:mb-2">
+      {children}
+    </p>
   ),
   strong: ({ children }: { children: ReactNode }): ReactElement => (
     <strong className="font-semibold">{children}</strong>
@@ -142,10 +160,16 @@ const components = {
   ),
 
   // Code
-  code: ({ children, className }: { children: ReactNode; className?: string }): ReactElement => {
+  code: ({
+    children,
+    className,
+  }: {
+    children: ReactNode;
+    className?: string;
+  }): ReactElement => {
     const match = /language-(\w+)/.exec(className || "");
     const codeString = String(children).replace(/\n$/, "");
-    
+
     return match ? (
       <div className="relative group w-full">
         <CopyButton text={codeString} />
@@ -249,12 +273,18 @@ const components = {
     </tr>
   ),
   th: ({ children, ...props }: { children: ReactNode }): ReactElement => (
-    <th className="border px-4 py-2 text-left font-semibold [&[align=center]]:text-center [&[align=right]]:text-right" {...props}>
+    <th
+      className="border px-4 py-2 text-left font-semibold [&[align=center]]:text-center [&[align=right]]:text-right"
+      {...props}
+    >
       {children}
     </th>
   ),
   td: ({ children, ...props }: { children: ReactNode }): ReactElement => (
-    <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right" {...props}>
+    <td
+      className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
+      {...props}
+    >
       {children}
     </td>
   ),

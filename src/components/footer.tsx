@@ -6,8 +6,8 @@ import config from "@/config";
 import { cn } from "@/lib/utils";
 import { SocialLinkType } from "@/types/config";
 import { ExternalLink } from "lucide-react";
-import Image from "next/image";
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 import { ReactElement, ReactNode } from "react";
 
 const Footer = (): ReactElement => (

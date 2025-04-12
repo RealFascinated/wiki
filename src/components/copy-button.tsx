@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Copy, Check } from "lucide-react";
-import { ReactElement } from "react";
+import { Check, Copy } from "lucide-react";
+import { ReactElement, useState } from "react";
 import SimpleTooltip from "./simple-tooltip";
 
 interface CopyButtonProps {
@@ -20,16 +19,16 @@ export const CopyButton = ({ text }: CopyButtonProps): ReactElement => {
 
   return (
     <SimpleTooltip content="Copy contents">
-        <button
-      onClick={copyToClipboard}
-      className="absolute right-2 top-2 p-2 rounded-md bg-[#0D1117]/70 hover:bg-[#161B22]/70 transition-colors"
-    >
-      {copied ? (
-        <Check className="w-4 h-4 text-green-500" />
-      ) : (
-        <Copy className="w-4 h-4" />
-      )}
-    </button>
+      <button
+        onClick={copyToClipboard}
+        className="absolute right-2 top-2 p-2 rounded-md bg-[#0D1117]/70 hover:bg-[#161B22]/70 transition-colors"
+      >
+        {copied ? (
+          <Check className="w-4 h-4 text-green-500" />
+        ) : (
+          <Copy className="w-4 h-4" />
+        )}
+      </button>
     </SimpleTooltip>
   );
-}; 
+};

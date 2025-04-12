@@ -5,8 +5,8 @@ import Sidebar from "@/components/sidebar/sidebar";
 import SocialLink from "@/components/social-link";
 import config from "@/config";
 import { SocialLinkType } from "@/types/config";
-import Image from "next/image";
 import { Link } from "next-view-transitions";
+import Image from "next/image";
 import { ReactElement } from "react";
 
 const Navbar = ({ pages }: { pages: DocsContentMetadata[] }): ReactElement => (
