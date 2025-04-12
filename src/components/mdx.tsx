@@ -118,7 +118,7 @@ const components = {
     </Link>
   ),
   p: ({ children }: { children: ReactNode }): ReactElement => (
-    <p className="leading-7 [&:not(:first-child)]:mt-4">{children}</p>
+    <p className="leading-7 [&:not(:first-child)]:mt-2 [&:not(:last-child)]:mb-2">{children}</p>
   ),
   strong: ({ children }: { children: ReactNode }): ReactElement => (
     <strong className="font-semibold">{children}</strong>
@@ -132,13 +132,13 @@ const components = {
 
   // Lists
   ul: ({ children }: { children: ReactNode }): ReactElement => (
-    <ul className="my-4 ml-6 list-disc [&>li]:mt-2">{children}</ul>
+    <ul className="my-2 ml-6 list-disc [&>li]:mt-2">{children}</ul>
   ),
   ol: ({ children }: { children: ReactNode }): ReactElement => (
-    <ol className="my-4 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
+    <ol className="my-2 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
   ),
   li: ({ children }: { children: ReactNode }): ReactElement => (
-    <li className="leading-7">{children}</li>
+    <li className="leading-7 mb-2">{children}</li>
   ),
 
   // Code
@@ -303,7 +303,7 @@ const Heading = ({
       id={id}
       className={cn(
         "py-3 font-bold select-none",
-        size >= 2 && "pt-5",
+        size >= 2 && "pt-4",
         className
       )}
     >
