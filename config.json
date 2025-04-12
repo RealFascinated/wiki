@@ -25,7 +25,7 @@
     }
   },
   "viewport": {
-    "themeColor": "#A855F7"
+    "themeColor": "#297eff"
   },
   "contentSource": "./docs",
   "contentEditUrl": "https://github.com/realfascinated/wiki/blob/master/docs/{slug}{ext}",
