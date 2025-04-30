@@ -8,7 +8,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
   color: white;
   min-height: 100vh;
   display: flex;
@@ -39,7 +39,7 @@
   font-size: 4rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #fff, #f0f0f0);
+  background: linear-gradient(to right, #ffffff, #e0e0e0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeInUp 1s ease-out;
@@ -69,14 +69,17 @@
 }
 
 .button--secondary {
-  background: white;
-  color: #764ba2;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
 }
 
 .button--secondary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes fadeInUp {
