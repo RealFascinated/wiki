@@ -12,6 +12,9 @@ RUN apk add --no-cache git
 # Copy package files
 COPY package*.json ./
 
+# Copy docusaurus config
+COPY --from=builder /app/docusaurus.config.ts ./docusaurus.config.ts
+
 # Install dependencies
 RUN npm ci
 
