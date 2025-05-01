@@ -84,6 +84,12 @@ const config: Config = {
           label: 'Homelab',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'toolsSidebar',
+          position: 'left',
+          label: 'Tools',
+        },
+        {
           href: 'https://github.com/realfascinated/wiki',
           label: 'GitHub',
           position: 'right',
@@ -103,6 +109,10 @@ const config: Config = {
             {
               label: 'Homelab',
               to: '/homelab/intro',
+            },
+            {
+              label: 'Tools',
+              to: '/tools/intro',
             },
           ],
         },
