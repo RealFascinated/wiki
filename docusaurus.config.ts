@@ -36,11 +36,11 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/realfascinated/wiki/tree/master',
+          editUrl: 'https://github.com/realfascinated/wiki/tree/master',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -76,17 +76,21 @@ const config: Config = {
       style: 'dark',
       links: [
         {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Wiki',
+              to: '/wiki/intro',
+            },
+          ],
+        },
+        {
           title: 'Community',
           items: [
             {
               label: 'Discord',
               href: 'https://discord.fascinated.cc',
-            }
-          ],
-        },
-        {
-          title: 'More',
-          items: [
+            },
             {
               label: 'GitHub',
               href: 'https://github.com/realfascinated/wiki',
@@ -94,16 +98,20 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Fascinated.`,
     },
     colorMode: {
       defaultMode: 'dark',
+      respectPrefersColorScheme: true,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-
+      additionalLanguages: ['bash', 'docker', 'yaml', 'json'],
     },
+    metadata: [
+      {name: 'keywords', content: 'wiki, homelab, documentation, guide'},
+    ],
   } satisfies Preset.ThemeConfig,
 };
 

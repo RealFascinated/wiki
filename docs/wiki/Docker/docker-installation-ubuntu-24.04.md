@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+tags:
+  - Docker
+  - Ubuntu
 ---
 
 # Docker installation on Ubuntu 24.04+

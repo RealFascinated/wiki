@@ -1,5 +1,9 @@
 ---
 sidebar_position: 1
+tags:
+  - Cloudflare
+  - SSL
+  - Let's Encrypt
 ---
 
 # Generate Let's Encrypt SSL Certificate Using Cloudflare DNS

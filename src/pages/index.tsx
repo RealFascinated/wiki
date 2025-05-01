@@ -12,18 +12,23 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className={styles.container}>
+        <img
+          src="https://cdn.fascinated.cc/v3mcsT0F.jpg"
+          alt="Fascinated's Wiki Logo"
+          className={styles.heroLogo}
+        />
         <Heading as="h1" className={styles.hero__title}>
           {siteConfig.title}
         </Heading>
         <p className={styles.hero__subtitle}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className={clsx(styles.button, styles['button--secondary'])}
-            to="/docs/wiki/intro">
+            className={clsx(styles.button, styles['button--primary'], styles['button--lg'])}
+            to="/wiki/intro">
             Get Started →
           </Link>
           <Link
-            className={clsx(styles.button, styles["button--secondary"])}
+            className={clsx(styles.button, styles['button--secondary'], styles['button--lg'])}
             to={`https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -36,6 +41,76 @@ function HomepageHeader() {
   );
 }
 
+function Feature({title, description}: {title: string; description: string}) {
+  return (
+    <div className={clsx('col col--4', styles.feature)}>
+      <div className="text--center padding-horiz--md">
+        <Heading as="h3">{title}</Heading>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
+}
+
+function FeaturesSection() {
+  return (
+    <section className={styles.features}>
+      <div className="container">
+        <div className="row">
+          <Feature
+            title="Comprehensive Guides"
+            description="Detailed documentation covering various aspects of homelabbing, from basic setup to advanced configurations."
+          />
+          <Feature
+            title="Open Source"
+            description="All content is open source and community-driven. Feel free to contribute and improve the documentation."
+          />
+          <Feature
+            title="Regular Updates"
+            description="Content is regularly updated to keep up with the latest technologies and best practices."
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function QuickLinksSection() {
+  return (
+    <section className={styles.quickLinks}>
+      <div className="container">
+        <Heading as="h2" className="text--center">Quick Links</Heading>
+        <div className={clsx('row', styles.quickLinksContainer)}>
+          <div className="col col--4">
+            <Link to="/wiki/Linux" className={styles.quickLink}>
+              <div className={styles.quickLinkContent}>
+                <Heading as="h3">Linux Guides</Heading>
+                <p>Learn about Linux administration and configuration</p>
+              </div>
+            </Link>
+          </div>
+          <div className="col col--4">
+            <Link to="/wiki/Docker" className={styles.quickLink}>
+              <div className={styles.quickLinkContent}>
+                <Heading as="h3">Docker</Heading>
+                <p>Containerization and orchestration guides</p>
+              </div>
+            </Link>
+          </div>
+          <div className="col col--4">
+            <Link to="/wiki/Systemd" className={styles.quickLink}>
+              <div className={styles.quickLinkContent}>
+                <Heading as="h3">Systemd</Heading>
+                <p>Service management and system configuration</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -44,7 +119,8 @@ export default function Home(): ReactNode {
       description="A modern, beautiful documentation site built with Docusaurus">
       <HomepageHeader />
       <main>
-        {/* Add more sections here if needed */}
+        <FeaturesSection />
+        <QuickLinksSection />
       </main>
     </Layout>
   );

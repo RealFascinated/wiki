@@ -6,25 +6,69 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #6b358d;
+  --ifm-color-primary-dark: #5d2f7b;
+  --ifm-color-primary-darker: #562b72;
+  --ifm-color-primary-darkest: #47235e;
+  --ifm-color-primary-light: #7a3fa0;
+  --ifm-color-primary-lighter: #8247a8;
+  --ifm-color-primary-lightest: #9b4dca;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(107, 53, 141, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #9b4dca;
+  --ifm-color-primary-dark: #8a45b6;
+  --ifm-color-primary-darker: #8241ac;
+  --ifm-color-primary-darkest: #6b358d;
+  --ifm-color-primary-light: #a55fd0;
+  --ifm-color-primary-lighter: #ac69d4;
+  --ifm-color-primary-lightest: #bd85de;
+  --docusaurus-highlighted-code-line-bg: rgba(155, 77, 202, 0.1);
+}
+
+/* Purple gradient for hero section */
+.heroBanner {
+  background: linear-gradient(135deg, #4a235a 0%, #6b358d 100%);
+}
+
+/* Purple tint for code blocks */
+.prism-code {
+  background-color: rgba(107, 53, 141, 0.05) !important;
+}
+
+/* Purple hover effect for links */
+a:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+/* Purple border for active sidebar items */
+.menu__link--active {
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+/* Purple background for selected text */
+::selection {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+}
+
+/* Purple scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-primary-light);
 }

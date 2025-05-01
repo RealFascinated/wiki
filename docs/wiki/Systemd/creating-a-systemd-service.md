@@ -1,5 +1,9 @@
 ---
 sidebar_position: 1
+tags:
+  - Systemd
+  - Ubuntu
+  - Linux
 ---
 
 # How to create a Systemd service on Ubuntu 24.04

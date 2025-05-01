@@ -1,5 +1,8 @@
 ---
 sidebar_position: 2
+tags:
+  - Linux
+  - Cronjob
 ---
 
 import CronMaker from '@site/src/components/cron-maker';
