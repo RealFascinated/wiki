@@ -112,7 +112,7 @@ const config: Config = {
             },
             {
               label: "Tools",
-              to: "/tools/intro",
+              to: "/tools/cronjob",
             },
           ],
         },
