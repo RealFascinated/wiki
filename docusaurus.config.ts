@@ -119,6 +119,15 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Misc',
+          items: [
+            {
+              label: 'Status',
+              href: 'https://status.fascinated.cc/status/home',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Fascinated.`,
     },
