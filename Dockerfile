@@ -18,7 +18,6 @@ RUN npm ci
 # Clone the repository and preserve git history
 RUN git clone --depth 1 https://github.com/RealFascinated/wiki.git /tmp/repo && \
     cp -r /tmp/repo/.git . && \
-    cp -r /tmp/repo/* . && \
     rm -rf /tmp/repo
 
 # Build the site
