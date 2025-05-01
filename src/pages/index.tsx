@@ -82,26 +82,26 @@ function QuickLinksSection() {
         <Heading as="h2" className="text--center">Quick Links</Heading>
         <div className={clsx('row', styles.quickLinksContainer)}>
           <div className="col col--4">
-            <Link to="/wiki/Linux" className={styles.quickLink}>
+            <Link to="/wiki/Linux/linux-basics" className={styles.quickLink}>
               <div className={styles.quickLinkContent}>
-                <Heading as="h3">Linux Guides</Heading>
+                <Heading as="h3">Linux Basics</Heading>
                 <p>Learn about Linux administration and configuration</p>
               </div>
             </Link>
           </div>
           <div className="col col--4">
-            <Link to="/wiki/Docker" className={styles.quickLink}>
+            <Link to="/wiki/Linux/cronjobs" className={styles.quickLink}>
               <div className={styles.quickLinkContent}>
-                <Heading as="h3">Docker</Heading>
-                <p>Containerization and orchestration guides</p>
+                <Heading as="h3">Cron Jobs</Heading>
+                <p>Schedule and manage automated tasks</p>
               </div>
             </Link>
           </div>
           <div className="col col--4">
-            <Link to="/wiki/Systemd" className={styles.quickLink}>
+            <Link to="/wiki/intro" className={styles.quickLink}>
               <div className={styles.quickLinkContent}>
-                <Heading as="h3">Systemd</Heading>
-                <p>Service management and system configuration</p>
+                <Heading as="h3">Getting Started</Heading>
+                <p>Begin your homelab journey</p>
               </div>
             </Link>
           </div>

@@ -6,14 +6,20 @@ FROM base AS builder
 # Set working directory
 WORKDIR /app
 
+# Install packages
+RUN apk add --no-cache git
+
 # Copy package files
 COPY package*.json ./
 
 # Install dependencies
 RUN npm ci
 
-# Copy source code
-COPY . .
+# Clone the repository and preserve git history
+RUN git clone --depth 1 https://github.com/RealFascinated/wiki.git /tmp/repo && \
+    cp -r /tmp/repo/.git . && \
+    cp -r /tmp/repo/* . && \
+    rm -rf /tmp/repo
 
 # Build the site
 RUN npm run build
