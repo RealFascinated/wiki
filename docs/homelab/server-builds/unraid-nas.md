@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Unraid NAS
 
+My mass storage machine to store basically my entire life.
+
 ## Server Specs
 
 - CPU: AMD Ryzen 3200
