@@ -8,7 +8,7 @@ tags:
 
 # Generate Let's Encrypt SSL Certificate Using Cloudflare DNS
 
-This guide will walk you through the process of generating a Let's Encrypt SSL certificate using Cloudflare DNS validation. This method is particularly useful for servers that don't have direct HTTP access or when you want to automate certificate renewal. *This was tested on Ubuntu 24.04.*
+This guide will walk you through the process of generating a Let's Encrypt SSL certificate using Cloudflare DNS validation. This method is particularly useful for servers that don't have direct HTTP access or when you want to automate certificate renewal. _This was tested on Ubuntu 24.04._
 
 ## Prerequisites
 

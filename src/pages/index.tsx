@@ -1,16 +1,16 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
+import React, { ReactNode } from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import Heading from "@theme/Heading";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className={styles.container}>
         <img
           src="https://cdn.fascinated.cc/v3mcsT0F.jpg"
@@ -23,12 +23,21 @@ function HomepageHeader() {
         <p className={styles.hero__subtitle}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
-            className={clsx(styles.button, styles['button--primary'], styles['button--lg'])}
-            to="/wiki/intro">
+            className={clsx(
+              styles.button,
+              styles["button--primary"],
+              styles["button--lg"]
+            )}
+            to="/wiki/intro"
+          >
             Get Started →
           </Link>
           <Link
-            className={clsx(styles.button, styles['button--secondary'], styles['button--lg'])}
+            className={clsx(
+              styles.button,
+              styles["button--secondary"],
+              styles["button--lg"]
+            )}
             to={`https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -41,9 +50,15 @@ function HomepageHeader() {
   );
 }
 
-function Feature({title, description}: {title: string; description: string}) {
+function Feature({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
-    <div className={clsx('col col--4', styles.feature)}>
+    <div className={clsx("col col--4", styles.feature)}>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
@@ -79,8 +94,10 @@ function QuickLinksSection() {
   return (
     <section className={styles.quickLinks}>
       <div className="container">
-        <Heading as="h2" className="text--center">Quick Links</Heading>
-        <div className={clsx('row', styles.quickLinksContainer)}>
+        <Heading as="h2" className="text--center">
+          Quick Links
+        </Heading>
+        <div className={clsx("row", styles.quickLinksContainer)}>
           <div className="col col--4">
             <Link to="/wiki/Linux/linux-basics" className={styles.quickLink}>
               <div className={styles.quickLinkContent}>
@@ -112,11 +129,12 @@ function QuickLinksSection() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title} - Modern Documentation`}
-      description="A modern, beautiful documentation site built with Docusaurus">
+      description="A modern, beautiful documentation site built with Docusaurus"
+    >
       <HomepageHeader />
       <main>
         <FeaturesSection />

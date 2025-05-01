@@ -145,8 +145,8 @@
     grid-template-columns: 1fr;
     gap: 8px;
   }
-  
+
   .inputGroup {
     grid-template-columns: 1fr;
   }
-} 
+}
