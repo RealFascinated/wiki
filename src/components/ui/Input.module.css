@@ -1,0 +1,36 @@
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.input.error {
+  border-color: var(--ifm-color-danger);
+}
+
+.errorMessage {
+  color: var(--ifm-color-danger);
+  font-size: 12px;
+  margin-top: 4px;
+} 

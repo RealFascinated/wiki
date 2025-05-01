@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./timestamp-converter.module.css";
+import { Container } from "./ui/Container";
+import { Button } from "./ui/Button";
+import { Input } from "./ui/Input";
 import {
   formatRelativeTime,
   getCurrentTimestamp,
@@ -8,7 +11,7 @@ import {
   convertTimestampUnits,
 } from "../common/utils";
 
-const TimestampConverter: React.FC = () => {
+export default function TimestampConverter() {
   const [timestamp, setTimestamp] = useState<string>("");
   const [date, setDate] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -117,14 +120,18 @@ const TimestampConverter: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <Container>
       <div className={styles.currentTimestamp}>
         <h3>Current Unix Timestamp:</h3>
         <div className={styles.timestampDisplay}>
           <span>{currentTimestamp}</span>
-          <button onClick={copyCurrentTimestamp} className={styles.copyButton}>
+          <Button
+            variant="primary"
+            size="small"
+            onClick={copyCurrentTimestamp}
+          >
             Copy
-          </button>
+          </Button>
         </div>
         <div className={styles.toggleContainer}>
           <label className={styles.toggle}>
@@ -141,22 +148,23 @@ const TimestampConverter: React.FC = () => {
 
       <div className={styles.inputGroup}>
         <label htmlFor="timestamp">Enter Unix Timestamp:</label>
-        <input
-          type="text"
+        <Input
           id="timestamp"
           value={timestamp}
           onChange={handleTimestampChange}
           placeholder="Paste timestamp here"
+          error={error}
         />
       </div>
 
       <div className={styles.inputGroup}>
         <label htmlFor="date">Or select a date:</label>
-        <input
-          type="datetime-local"
+        <Input
           id="date"
+          type="datetime-local"
           value={date}
           onChange={handleDateChange}
+          error={error}
         />
       </div>
 
@@ -184,8 +192,6 @@ const TimestampConverter: React.FC = () => {
           <p className={styles.relativeTime}>Relative Time: {relativeTime}</p>
         </div>
       )}
-    </div>
+    </Container>
   );
-};
-
-export default TimestampConverter;
+}

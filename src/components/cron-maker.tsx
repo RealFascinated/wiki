@@ -1,5 +1,8 @@
 import React, { useState, useEffect, ReactElement } from "react";
 import styles from "./cron-maker.module.css";
+import { Container } from "./ui/Container";
+import { Button } from "./ui/Button";
+import { Select } from "./ui/Select";
 
 interface CronParts {
   minute: string;
@@ -239,18 +242,18 @@ export default function CronMaker(): ReactElement {
   };
 
   return (
-    <div className={styles.cronMaker}>
+    <Container>
       <div className={styles.presets}>
         <h3>Quick Schedules</h3>
         <div className={styles.presetButtons}>
           {PRESETS.map((preset, index) => (
-            <button
+            <Button
               key={index}
-              className={styles.presetButton}
+              variant="primary"
               onClick={() => applyPreset(preset)}
             >
               {preset.label}
-            </button>
+            </Button>
           ))}
         </div>
       </div>
@@ -258,126 +261,71 @@ export default function CronMaker(): ReactElement {
       <div className={styles.inputs}>
         <div className={styles.field}>
           <label>Minute:</label>
-          <div className={styles.inputGroup}>
-            <input
-              type="text"
-              value={cronParts.minute}
-              onChange={(e) => updateCronPart("minute", e.target.value)}
-              placeholder="*"
-            />
-            <select
-              value={cronParts.minute}
-              onChange={(e) => updateCronPart("minute", e.target.value)}
-            >
-              <option value="*">Every minute</option>
-              {MINUTES.map((m) => (
-                <option key={m} value={m}>
-                  {m}
-                </option>
-              ))}
-            </select>
-          </div>
+          <Select
+            value={cronParts.minute}
+            onChange={(e) => updateCronPart("minute", e.target.value)}
+            options={[
+              { value: "*", label: "Every minute" },
+              ...MINUTES.map((m) => ({ value: m.toString(), label: m.toString() })),
+            ]}
+          />
         </div>
 
         <div className={styles.field}>
           <label>Hour:</label>
-          <div className={styles.inputGroup}>
-            <input
-              type="text"
-              value={cronParts.hour}
-              onChange={(e) => updateCronPart("hour", e.target.value)}
-              placeholder="*"
-            />
-            <select
-              value={cronParts.hour}
-              onChange={(e) => updateCronPart("hour", e.target.value)}
-            >
-              <option value="*">Every hour</option>
-              {HOURS.map((h) => (
-                <option key={h} value={h}>
-                  {h}:00
-                </option>
-              ))}
-            </select>
-          </div>
+          <Select
+            value={cronParts.hour}
+            onChange={(e) => updateCronPart("hour", e.target.value)}
+            options={[
+              { value: "*", label: "Every hour" },
+              ...HOURS.map((h) => ({ value: h.toString(), label: `${h}:00` })),
+            ]}
+          />
         </div>
 
         <div className={styles.field}>
           <label>Day of Month:</label>
-          <div className={styles.inputGroup}>
-            <input
-              type="text"
-              value={cronParts.dayOfMonth}
-              onChange={(e) => updateCronPart("dayOfMonth", e.target.value)}
-              placeholder="*"
-            />
-            <select
-              value={cronParts.dayOfMonth}
-              onChange={(e) => updateCronPart("dayOfMonth", e.target.value)}
-            >
-              <option value="*">Every day</option>
-              {DAYS_OF_MONTH.map((d) => (
-                <option key={d} value={d}>
-                  {d}
-                </option>
-              ))}
-            </select>
-          </div>
+          <Select
+            value={cronParts.dayOfMonth}
+            onChange={(e) => updateCronPart("dayOfMonth", e.target.value)}
+            options={[
+              { value: "*", label: "Every day" },
+              ...DAYS_OF_MONTH.map((d) => ({ value: d.toString(), label: d.toString() })),
+            ]}
+          />
         </div>
 
         <div className={styles.field}>
           <label>Month:</label>
-          <div className={styles.inputGroup}>
-            <input
-              type="text"
-              value={cronParts.month}
-              onChange={(e) => updateCronPart("month", e.target.value)}
-              placeholder="*"
-            />
-            <select
-              value={cronParts.month}
-              onChange={(e) => updateCronPart("month", e.target.value)}
-            >
-              <option value="*">Every month</option>
-              {MONTHS.map((m) => (
-                <option key={m.value} value={m.value}>
-                  {m.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          <Select
+            value={cronParts.month}
+            onChange={(e) => updateCronPart("month", e.target.value)}
+            options={[
+              { value: "*", label: "Every month" },
+              ...MONTHS.map((m) => ({ value: m.value.toString(), label: m.label })),
+            ]}
+          />
         </div>
 
         <div className={styles.field}>
           <label>Day of Week:</label>
-          <div className={styles.inputGroup}>
-            <input
-              type="text"
-              value={cronParts.dayOfWeek}
-              onChange={(e) => updateCronPart("dayOfWeek", e.target.value)}
-              placeholder="*"
-            />
-            <select
-              value={cronParts.dayOfWeek}
-              onChange={(e) => updateCronPart("dayOfWeek", e.target.value)}
-            >
-              <option value="*">Every day</option>
-              {DAYS_OF_WEEK.map((d) => (
-                <option key={d.value} value={d.value}>
-                  {d.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          <Select
+            value={cronParts.dayOfWeek}
+            onChange={(e) => updateCronPart("dayOfWeek", e.target.value)}
+            options={[
+              { value: "*", label: "Every day" },
+              ...DAYS_OF_WEEK.map((d) => ({ value: d.value.toString(), label: d.label })),
+            ]}
+          />
         </div>
       </div>
 
       <div className={styles.result}>
         <div className={styles.expressionHeader}>
           <h3>Generated Cron Expression:</h3>
-          <button className={styles.copyButton} onClick={copyToClipboard}>
+          <Button variant="success" onClick={copyToClipboard}>
             {copied ? "✓ Copied!" : "Copy"}
-          </button>
+          </Button>
         </div>
         <code>{getCronExpression()}</code>
         <p className={styles.description}>{getDescription()}</p>
@@ -391,6 +339,6 @@ export default function CronMaker(): ReactElement {
           </ul>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
