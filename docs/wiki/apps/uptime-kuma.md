@@ -7,7 +7,7 @@ tags:
 
 # Uptime Kuma
 
-Uptime Kuma is a simple uptime monitoring tool that allows you to monitor the uptime and status of your websites or docker containers.
+Uptime Kuma is a simple uptime monitoring tool that allows you to monitor the uptime and status of your websites or docker containers. View their [GitHub](https://github.com/louislam/uptime-kuma) for more information.
 
 Features: 
 - Monitoring uptime for HTTP(s) / TCP / Ping / DNS Record.
