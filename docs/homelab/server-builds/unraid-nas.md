@@ -8,7 +8,7 @@ My mass storage machine to store basically my entire life.
 
 ## Server Specs
 
-- CPU: AMD Ryzen 3200
+- CPU: AMD Ryzen 3600
 - GPU: NVIDIA GeForce RTX 2070 Super (8GB)
 - RAM: 32GB DDR4
 - Motherboard: Gigabyte B450 AORUS ELITE
