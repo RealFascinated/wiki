@@ -9,11 +9,12 @@ import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className={styles.container}>
         <img
-          src="https://cdn.fascinated.cc/v3mcsT0F.jpg"
+          src={siteConfig.favicon}
           alt="Fascinated's Wiki Logo"
           className={styles.heroLogo}
         />
