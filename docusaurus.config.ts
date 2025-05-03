@@ -66,6 +66,13 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
+    scripts: [
+      {
+        src: "https://analytics.fascinated.cc/script.js",
+        defer: true,
+        "data-website-id": "183f5103-6932-4764-8d56-cdb222b512ad",
+      },
+    ],
     navbar: {
       title: "Fascinated's Wiki",
       logo: {
