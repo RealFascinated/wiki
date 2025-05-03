@@ -133,8 +133,8 @@ export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title} - Modern Documentation`}
-      description="A modern, beautiful documentation site built with Docusaurus"
+      title={`${siteConfig.title}`}
+      description="A comprehensive wiki for homelab enthusiasts, featuring guides on Linux administration, automation, and system configuration."
     >
       <HomepageHeader />
       <main>
