@@ -1,7 +1,4 @@
-FROM node:22-alpine AS base
-
-# Build stage
-FROM base AS builder
+FROM node:22-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -27,21 +24,16 @@ RUN git clone --depth 1 https://github.com/RealFascinated/wiki.git /tmp/repo && 
 RUN npm run build
 
 # Production stage
-FROM base AS prod
-
-# Set working directory
-WORKDIR /app
+FROM nginx:alpine
 
 # Copy built files from builder stage
-COPY --from=builder /app/docusaurus.config.ts ./docusaurus.config.ts
-COPY --from=builder /app/build ./build
-COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/build /usr/share/nginx/html
 
-# Install only production dependencies
-RUN npm ci --only=production
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 80
+EXPOSE 80
 
-# Start the server
-CMD ["npm", "run", "serve"] 
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"] 
