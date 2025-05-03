@@ -12,8 +12,8 @@ tags:
 ### Prerequisites
 
 - Ubuntu 24.04
-- Python 3.10+ (Installation instructions [here](/wiki/Ubuntu/install-python3))
-- (Optional) Docker (Installation instructions [here](/wiki/Docker/docker-installation-ubuntu-24.04))
+- Python 3.10+ (Installation instructions [here](/wiki/ubuntu/install-python3))
+- (Optional) Docker (Installation instructions [here](/wiki/docker/docker-installation-ubuntu-24.04))
 
 ### Install Glances
 

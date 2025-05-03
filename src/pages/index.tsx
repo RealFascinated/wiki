@@ -100,7 +100,7 @@ function QuickLinksSection() {
         </Heading>
         <div className={clsx("row", styles.quickLinksContainer)}>
           <div className="col col--4">
-            <Link to="/wiki/Linux/linux-basics" className={styles.quickLink}>
+            <Link to="/wiki/linux/linux-basics" className={styles.quickLink}>
               <div className={styles.quickLinkContent}>
                 <Heading as="h3">Linux Basics</Heading>
                 <p>Learn about Linux administration and configuration</p>
@@ -108,7 +108,7 @@ function QuickLinksSection() {
             </Link>
           </div>
           <div className="col col--4">
-            <Link to="/wiki/Linux/cronjobs" className={styles.quickLink}>
+            <Link to="/wiki/linux/cronjobs" className={styles.quickLink}>
               <div className={styles.quickLinkContent}>
                 <Heading as="h3">Cron Jobs</Heading>
                 <p>Schedule and manage automated tasks</p>
