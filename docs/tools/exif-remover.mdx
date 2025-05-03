@@ -1,0 +1,75 @@
+---
+title: EXIF Data Remover
+description: Remove EXIF metadata from your images to protect your privacy
+---
+
+import ExifDataRemover from '@site/src/components/exif-data-remover';
+
+# EXIF Data Remover
+
+The EXIF Data Remover tool helps you remove metadata from your images. EXIF (Exchangeable Image File Format) data can contain sensitive information such as:
+
+- Camera settings
+- Date and time the photo was taken
+- GPS coordinates
+- Device information
+- Software used to edit the image
+
+## Why Remove EXIF Data?
+
+Removing EXIF data is important for:
+
+- **Privacy Protection**: Prevent sharing of location data and other personal information
+- **File Size Reduction**: EXIF data can increase file size
+- **Professional Sharing**: Remove unnecessary metadata when sharing images publicly
+
+## How to Use
+
+1. Upload an image using the file picker below
+2. Click "Remove EXIF Data" to process the image
+3. Download the processed image without EXIF metadata
+
+<ExifDataRemover />
+
+## How It Works
+
+The tool works by:
+
+1. Loading your image into a canvas element
+2. Redrawing the image without any metadata
+3. Converting the canvas back to an image file
+4. Providing you with a download link
+
+## Supported Formats
+
+The tool supports all common image formats:
+- JPEG/JPG
+- PNG
+- WebP
+- GIF
+
+## Privacy Note
+
+All processing is done in your browser. Your images are never uploaded to any server, ensuring complete privacy.
+
+## Technical Details
+
+The EXIF data removal process:
+- Preserves image quality
+- Maintains the original image dimensions
+- Keeps the original file format
+- Removes all metadata including:
+  - GPS coordinates
+  - Camera settings
+  - Date and time
+  - Device information
+  - Software information
+
+## Browser Compatibility
+
+This tool works in all modern browsers that support the HTML5 Canvas API:
+- Chrome
+- Firefox
+- Safari
+- Edge
+- Opera

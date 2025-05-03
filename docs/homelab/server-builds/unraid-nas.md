@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Unraid NAS
@@ -29,6 +29,6 @@ My mass storage machine to store basically my entire life.
 
 ## Images
 
-![Front](./img/20250501_204211.jpg)
-![Side](./img/20250501_204110.jpg)
-![Top](./img/20250501_204105.jpg)
+![Front](./img/unraid-nas/20250501_204211.jpg)
+![Side](./img/unraid-nas/20250501_204110.jpg)
+![Top](./img/unraid-nas/20250501_204105.jpg)
