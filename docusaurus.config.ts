@@ -20,7 +20,7 @@ const config: Config = {
   organizationName: "realfascinated", // Usually your GitHub org/user name.
   projectName: "wiki", // Usually your repo name.
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
@@ -67,13 +67,6 @@ const config: Config = {
           editUrl: "https://github.com/realfascinated/wiki/tree/master",
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
-          lastVersion: 'current',
-          versions: {
-            current: {
-              label: 'Current',
-              path: 'current',
-            },
-          },
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -135,11 +128,11 @@ const config: Config = {
           items: [
             {
               label: "Wiki",
-              to: "/wiki/intro",
+              to: "wiki/intro",
             },
             {
               label: "Homelab",
-              to: "/homelab/intro",
+              to: "homelab/intro",
             },
           ],
         },

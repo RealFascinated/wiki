@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+id: intro
 ---
 
 # Welcome
@@ -8,7 +9,7 @@ Welcome to my homelab wiki. Here you will find information about my homelab setu
 
 ## Categories
 
-- [Server Builds](/category/server-builds)
+- [Server Builds](../category/server-builds)
 - More to come?
 
 <img src="/kitty.webp" alt="Kitty" width="500" />
