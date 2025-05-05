@@ -31,13 +31,29 @@ const config: Config = {
     locales: ["en"],
   },
 
-  plugins: [require.resolve("docusaurus-lunr-search")],
+  plugins: [
+    require.resolve("docusaurus-lunr-search"),
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
+  ],
 
   scripts: [
     {
       src: "https://analytics.fascinated.cc/script.js",
       defer: true,
       "data-website-id": "183f5103-6932-4764-8d56-cdb222b512ad",
+    },
+    {
+      src: "/scripts/github-stars.js",
+      defer: true,
     },
   ],
 
@@ -51,6 +67,13 @@ const config: Config = {
           editUrl: "https://github.com/realfascinated/wiki/tree/master",
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'Current',
+              path: 'current',
+            },
+          },
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -97,6 +120,10 @@ const config: Config = {
           href: "https://github.com/realfascinated/wiki",
           label: "GitHub",
           position: "right",
+        },
+        {
+          type: 'search',
+          position: 'right',
         },
       ],
     },
@@ -148,11 +175,27 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["bash", "docker", "yaml", "json"],
+      additionalLanguages: ["bash", "docker", "yaml", "json", "typescript", "javascript"],
     },
     metadata: [
-      { name: "keywords", content: "wiki, homelab, documentation, guide" },
+      { name: "keywords", content: "wiki, homelab, documentation, guide, self-hosted, server, networking" },
+      { name: "description", content: "Comprehensive wiki and documentation for homelabbers, covering server setup, networking, and self-hosted applications." },
+      { name: "author", content: "Fascinated" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "Fascinated's Wiki" },
+      { property: "og:description", content: "Wiki for Homelabbers and related projects" },
+      { property: "og:image", content: "https://wiki.fascinated.cc/img/docusaurus-social-card.jpg" },
+      { property: "og:url", content: "https://wiki.fascinated.cc" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    announcementBar: {
+      id: 'support_us',
+      content: '⭐️ If you like this wiki, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/realfascinated/wiki">GitHub</a>!',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: true,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

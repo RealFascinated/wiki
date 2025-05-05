@@ -7,7 +7,7 @@ tags:
 
 # Gaming on CachyOS using Steam
 
-In this you will learn how to install and use Steam with Proton on CachyOS.
+In this guide, you will learn how to install and use Steam with Proton on CachyOS, along with performance optimization tips and useful tools.
 
 ## What is Proton?
 
@@ -59,54 +59,52 @@ Then, you will need to go to the "Compatibility" tab and check "Enable Steam Pla
 
 ## Installing Additional Proton Versions
 
-Proton has many different versions, each with their own features and optimizations.
+While Steam comes with its own Proton versions, you can install additional versions for better compatibility and performance. There are two popular tools to manage Proton versions:
 
-You can easily install these additional versions using [ProtonPlus](https://github.com/Vysp3r/ProtonPlus) or [ProtonUp](https://github.com/AUNaseef/ProtonUp).
+### Option 1: ProtonPlus (Recommended)
 
-### Post Installation
+ProtonPlus is a graphical tool for managing Proton versions. I have personally been using this for a while now and it's a great tool.
 
-After installing a new version of Proton, you will need to restart Steam.
-
-## ProtonPlus
-
-ProtonPlus is a tool that allows you to easily install and manage Proton versions.
-
-### Installing ProtonPlus
-
+1. Install ProtonPlus:
 ```bash
-yay -S protonup
+yay -S protonplus
 ```
 
-### Installing Proton Versions
-
-Open ProtonPlus and select the version you want to install. I recommend installing the latest version of Proton-GE, as can be seen in the screenshot below.
+2. Open ProtonPlus and select the version you want to install. I recommend installing the latest version of Proton-GE, as can be seen in the screenshot below.
 
 ![ProtonPlus Proton-GE Installation](./img/protonplus-usage.png)
 
-## ProtonUp
+### Option 2: ProtonUp-Qt
 
-ProtonUp is a tool that allows you to easily install and manage Proton versions.
+ProtonUp-Qt provides a graphical interface for managing Proton versions.
 
-### Installing ProtonUp
-
+1. Install ProtonUp-Qt:
 ```bash
 yay -S protonup-qt
 ```
 
-### Installing Proton Versions
+2. Launch ProtonUp-Qt and use the interface to:
+   - Click "Add Version"
+   - Select "Proton-GE" from the list
+   - Choose the latest version
+   - Click "Install"
 
-Open ProtonUp and select the version you want to install. I recommend installing the latest version of Proton-GE, as can be seen in the screenshot below.
-
-![Add Version](./img/protonup-add-version.webp)
+![ProtonUp Interface](./img/protonup-add-version.webp)
 ![Proton-GE Installation](./img/protonup-proton-ge.png)
 
-## Performance Overlays (MangoHud)
+### Recommended Proton Versions
 
-![MangoHud Preview](./img/mangohud.png)
+- **Proton-GE**: Enhanced version with additional patches and media codecs
+- **Proton Experimental**: Latest features and improvements from Valve
+- **Proton Hotfix**: Quick fixes for specific games
+
+After installing a new Proton version, restart Steam for the changes to take effect.
+
+## Performance Monitoring
+
+MangoHud is a powerful performance overlay for Linux that can display FPS, CPU/GPU usage, temperatures, and more.
 
 ### Installing MangoHud
-
-MangoHud is a performance overlay for Linux.
 
 ```bash
 yay -S mangohud
@@ -114,24 +112,18 @@ yay -S mangohud
 
 ### Configuring MangoHud
 
-Create a config file for MangoHud:
-
+1. Create the config directory and file:
 ```bash
 mkdir -p ~/.config/MangoHud
-```
-
-```bash
 touch ~/.config/MangoHud/MangoHud.conf
 ```
 
-Edit the config file:
-
+2. Edit the config file with your preferred editor:
 ```bash
 nano ~/.config/MangoHud/MangoHud.conf
 ```
 
-The following is the config file that I use for MangoHud:
-
+3. Recommended configuration:
 <details>
 <summary>MangoHud Configuration</summary>
 
@@ -187,36 +179,117 @@ network_color=e07b85
 ```
 </details>
 
-If will be off by default, so you will need to press `Shift_R+F12` (Right Shift + F12) to toggle it.
+### Using MangoHud
 
-### Launching Games with MangoHud
-
-To launch a game with MangoHud, you will need to add the following to the game's launch options:
-
+1. **Toggle the overlay**: Press `Shift_R+F12` (Right Shift + F12)
+2. **Launch games with MangoHud**: Add to game's launch options in Steam:
 ```
 mangohud %command%
 ```
 
-### Using an editor for MangoHud (MangoJuice)
+### MangoJuice (GUI Configuration)
 
-#### Installing MangoJuice
+For a graphical way to configure MangoHud, you can use MangoJuice:
 
+1. Install MangoJuice:
 ```bash
 yay -S mangojuice
 ```
 
-#### Configuring MangoJuice
+2. Launch MangoJuice to configure settings visually
+3. Use the "Test" button to preview your configuration
 
-Open MangoJuice and configure the settings to your liking.
+![MangoJuice Interface](./img/mangojuice.webp)
 
-![MangoJuice](./img/mangojuice.webp)
+## Game Optimization
 
-#### Previewing MangoHud
+### Steam Launch Options
 
-To preview MangoHud click the "Test" button and a window will open with MangoHud enabled.
-*You may need to toggle your overlay using the keybind you set in the config file if it is off by default.*
+Common launch options to improve game performance:
 
-![MangoJuice Test](./img/mangojuice-test.png)
+```
+# Enable DXVK async
+DXVK_ASYNC=1 %command%
+
+# Force specific GPU (NVIDIA Laptop with Internal GPU and Dedicated GPU)
+DRI_PRIME=1 %command%
+
+# Disable shader pre-caching
+__GL_SHADER_DISK_CACHE=0 %command%
+```
+
+### ProtonDB
+
+[ProtonDB](https://www.protondb.com/) is a database of game compatibility reports for Proton. You can find the best launch options for your game by searching for your game on the website.
+
+![ProtonDB](./img/protondb.webp)
+
+### GameMode
+GameMode is a daemon/lib combo for Linux that allows games to request a set of optimizations be temporarily applied to the host OS.
+
+1. Install GameMode:
+```bash
+yay -S gamemode lib32-gamemode
+```
+
+2. Launch games with GameMode:
+```
+gamemoderun %command%
+```
+
+## Steam Features
+
+### Family Sharing
+1. Go to Steam Settings > Family
+2. Authorize a computer for sharing
+3. Select which games to share
+4. Other users can now play your games when you're offline
+
+### Remote Play Together
+1. Right-click a game in your library
+2. Select "Remote Play Together"
+3. Invite friends to join your game
+4. They can play local multiplayer games over the internet
+
+### Steam Cloud
+- Automatically syncs save games across devices
+- Enable/disable per game in Properties > Updates
+- View cloud status in Steam Settings > Cloud
+
+1. Configure in `/etc/gamemode.ini`
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Game Crashes on Launch**
+   - Try different Proton versions
+   - Verify game files in Steam
+   - Check system logs for errors
+   - Disable shader pre-caching
+
+2. **Poor Performance**
+   - Ensure you have the latest graphics drivers
+   - Check if your GPU is being properly utilized
+   - Monitor system resources using MangoHud
+   - Try different launch options
+   - Enable [GameMode](#gamemode)
+
+3. **Audio Issues**
+   - Verify PulseAudio or Pipewire is running
+   - Check if the game is using the correct audio device
+   - Try different audio settings in the game
+   - Check for audio device conflicts
+
+## Additional Resources
+
+- [ProtonDB](https://www.protondb.com/) - Check game compatibility and user reports
+- [Lutris](https://lutris.net/) - Alternative game manager with additional features
+- [WineHQ](https://www.winehq.org/) - Wine documentation and compatibility database
+- [Gaming on Linux](https://www.gamingonlinux.com/) - News and guides for Linux gaming
+- [Steam Linux Runtime](https://github.com/ValveSoftware/steam-runtime) - Steam's runtime environment
+- [DXVK](https://github.com/doitsujin/dxvk) - DirectX to Vulkan translation layer
+- [VKD3D-Proton](https://github.com/HansKristian-Work/vkd3d-proton) - DirectX 12 to Vulkan translation layer
 
 
 
