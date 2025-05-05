@@ -57,6 +57,49 @@ Then, you will need to go to the "Compatibility" tab and check "Enable Steam Pla
 
 ![Steam Play](./img/steam-play.png)
 
+## Installing Additional Proton Versions
+
+Proton has many different versions, each with their own features and optimizations.
+
+You can easily install these additional versions using [ProtonPlus](https://github.com/Vysp3r/ProtonPlus) or [ProtonUp](https://github.com/AUNaseef/ProtonUp).
+
+### Post Installation
+
+After installing a new version of Proton, you will need to restart Steam.
+
+## ProtonPlus
+
+ProtonPlus is a tool that allows you to easily install and manage Proton versions.
+
+### Installing ProtonPlus
+
+```bash
+yay -S protonup
+```
+
+### Installing Proton Versions
+
+Open ProtonPlus and select the version you want to install. I recommend installing the latest version of Proton-GE, as can be seen in the screenshot below.
+
+![ProtonPlus Proton-GE Installation](./img/protonplus-usage.png)
+
+## ProtonUp
+
+ProtonUp is a tool that allows you to easily install and manage Proton versions.
+
+### Installing ProtonUp
+
+```bash
+yay -S protonup-qt
+```
+
+### Installing Proton Versions
+
+Open ProtonUp and select the version you want to install. I recommend installing the latest version of Proton-GE, as can be seen in the screenshot below.
+
+![Add Version](./img/protonup-add-version.webp)
+![Proton-GE Installation](./img/protonup-proton-ge.png)
+
 ## Performance Overlays (MangoHud)
 
 ![MangoHud Preview](./img/mangohud.png)
