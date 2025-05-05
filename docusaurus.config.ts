@@ -114,10 +114,6 @@ const config: Config = {
               label: "Homelab",
               to: "/homelab/intro",
             },
-            {
-              label: "Tools",
-              to: "/tools/cronjob",
-            },
           ],
         },
         {
