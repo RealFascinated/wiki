@@ -15,7 +15,7 @@ tags:
 
 This section will cover some common game optimization tips and tricks. Not all of these will be applicable to all games, but they are a good starting point.
 
-View the [about section](/wiki/cachyos-gaming/about) for more information about Gaming on CachyOS.
+> [Go Home](/wiki/cachyos-gaming/about)
 
 ## GameMode (Recommended)
 

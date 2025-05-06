@@ -12,7 +12,9 @@ tags:
 
 # Configuring Steam
 
-View the [about section](/wiki/cachyos-gaming/about) for more information about Gaming on CachyOS.
+You will need to enable Steam Play to use Proton.
+
+> [Go Home](/wiki/cachyos-gaming/about)
 
 ## Enabling Steam Play (Proton)
 
