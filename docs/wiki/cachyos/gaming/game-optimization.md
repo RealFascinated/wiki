@@ -31,7 +31,6 @@ yay -S gamemode lib32-gamemode
 gamemoderun %command%
 ```
 
-
 ## Laptop Optimizations
 
 If you laptop has an integrated GPU and a dedicated GPU, and it is using the integrated GPU, you can use the following command to force the game to use the dedicated GPU:
@@ -39,3 +38,16 @@ If you laptop has an integrated GPU and a dedicated GPU, and it is using the int
 ```
 DRI_PRIME=1 %command%
 ```
+
+## CachyOS game-performance
+
+CachyOS provides a wrapper script [game-performance](https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/bin/game-performance) which uses `power-profiles-daemon` to temporarily switch the current power profile to `performance`. The performance profile increases the system power levels and changes the CPU governor to `performance`.
+
+When this script is used to run a game, the system will be set to use the `performance` profile as long as the game is running. The previously used power profile will be restored once the game is closed.
+
+To use it, start the game with the following command:
+```
+game-performance %command%
+```
+
+Unsure how to do this? Check out the [Configuring Steam](/wiki/cachyos/gaming/configuring-steam#launch-options) page for more information.

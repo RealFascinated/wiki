@@ -27,3 +27,17 @@ To enable Steam Play inside of Steam, you will need to go to the "Steam" menu an
 Then, you will need to go to the "Compatibility" tab and check "Enable Steam Play for all other titles".
 
 ![Steam Play](./img/steam-play.png)
+
+## Launch Options
+
+You can add launch options to Steam games to improve performance.
+
+To do this, right-click the game in the Steam library and select "Properties".
+
+![Steam Properties](./img/steam-game-properties.png)
+
+Then, you will need to go to the "General" tab.
+
+For example you can enable MangoHud by adding `mangohud %command%` to the launch options.
+
+![Steam Launch Options](./img/steam-game-launch-args.png)

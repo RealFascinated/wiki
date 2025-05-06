@@ -32,11 +32,11 @@ Welcome to the ultimate guide for gaming on CachyOS! This comprehensive resource
 
 ## Table of Contents
 
-- [Installing Drivers](/docs/wiki/cachyos-gaming/installing-drivers)
-- [Configuring Steam](/docs/wiki/cachyos-gaming/configuring-steam)
-- [Proton](/docs/wiki/cachyos-gaming/proton)
-- [Performance Monitoring](/docs/wiki/cachyos-gaming/performance-monitoring)
-- [Game Optimization](/docs/wiki/cachyos-gaming/game-optimization)
+- [Installing Drivers](/wiki/cachyos/gaming/installing-drivers)
+- [Configuring Steam](/wiki/cachyos/gaming/configuring-steam)
+- [Proton](/wiki/cachyos/gaming/proton)
+- [Performance Monitoring](/wiki/cachyos/gaming/performance-monitoring)
+- [Game Optimization](/wiki/cachyos/gaming/game-optimization)
 
 ## ProtonDB
 
