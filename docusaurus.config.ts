@@ -51,10 +51,6 @@ const config: Config = {
       defer: true,
       "data-website-id": "183f5103-6932-4764-8d56-cdb222b512ad",
     },
-    {
-      src: "/scripts/github-stars.js",
-      defer: true,
-    },
   ],
 
   presets: [
