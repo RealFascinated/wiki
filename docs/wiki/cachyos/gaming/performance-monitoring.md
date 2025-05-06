@@ -14,7 +14,7 @@ tags:
 
 MangoHud is a powerful performance overlay for Linux that can display FPS, CPU/GPU usage, temperatures, and more.
 
-> [Go Home](/wiki/cachyos-gaming/about)
+> [Go Home](/wiki/cachyos/gaming/about)
 
 ## Installing MangoHud
 

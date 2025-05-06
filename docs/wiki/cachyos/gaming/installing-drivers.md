@@ -17,7 +17,7 @@ tags:
 
 Insalling additional drivers will ensure that you have the best performance and compatibility with your games. See [here](https://github.com/lutris/docs/blob/master/InstallingDrivers.md) for more information.
 
-> [Go Home](/wiki/cachyos-gaming/about)
+> [Go Home](/wiki/cachyos/gaming/about)
 
 ### Nvidia
 

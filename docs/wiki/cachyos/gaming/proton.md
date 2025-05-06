@@ -14,8 +14,8 @@ tags:
 
 In general you shouldn't need to install additional Proton versions, as Steam comes with its own Proton versions. However, if you are looking for additional Proton versions, you can install them using the following methods.
 
-> [Go Home](/wiki/cachyos-gaming/about)
-
+> [Go Home](/wiki/cachyos/gaming/about)
+> 
 ## Recommended Proton Versions
 
 - **Proton-GE**: Enhanced version with additional patches and media codecs

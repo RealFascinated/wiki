@@ -14,7 +14,7 @@ tags:
 
 You will need to enable Steam Play to use Proton.
 
-> [Go Home](/wiki/cachyos-gaming/about)
+> [Go Home](/wiki/cachyos/gaming/about)
 
 ## Enabling Steam Play (Proton)
 
