@@ -37,6 +37,8 @@ Welcome to the ultimate guide for gaming on CachyOS! This comprehensive resource
 - [Proton](/wiki/cachyos/gaming/proton)
 - [Performance Monitoring](/wiki/cachyos/gaming/performance-monitoring)
 - [Game Optimization](/wiki/cachyos/gaming/game-optimization)
+- [Ananicy Cpp](/wiki/cachyos/gaming/ananicy-cpp)
+- [Anticheat Support](/wiki/cachyos/gaming/anticheat)
 
 ## ProtonDB
 
