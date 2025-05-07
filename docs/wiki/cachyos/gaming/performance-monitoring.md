@@ -10,11 +10,13 @@ tags:
   - Tools
 ---
 
+import NavBanner from '@site/src/components/NavBanner';
+
 # Performance Monitoring
 
-MangoHud is a powerful performance overlay for Linux that can display FPS, CPU/GPU usage, temperatures, and more.
+<NavBanner href="/wiki/cachyos/gaming/about" text="Return to Gaming Guide" />
 
-> [Go Home](/wiki/cachyos/gaming/about)
+MangoHud is a powerful performance overlay for Linux that can display FPS, CPU/GPU usage, temperatures, and more.
 
 ## Installing MangoHud
 

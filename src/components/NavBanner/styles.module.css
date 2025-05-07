@@ -1,0 +1,47 @@
+.navBanner {
+  margin: 1rem 0 2rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: var(--ifm-background-color);
+  border-radius: 0 4px 4px 0;
+  transition: all 0.2s ease;
+}
+
+.navBanner:hover {
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  text-decoration: none;
+  color: var(--ifm-color-primary-darker);
+}
+
+.navIcon {
+  margin-right: 0.5rem;
+  font-size: 1.1em;
+}
+
+.navText {
+  font-size: 1em;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .navBanner:hover {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .navLink {
+  color: var(--ifm-color-primary-lighter);
+}
+
+[data-theme='dark'] .navLink:hover {
+  color: var(--ifm-color-primary-lightest);
+} 

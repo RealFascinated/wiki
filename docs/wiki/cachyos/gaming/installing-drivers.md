@@ -12,12 +12,13 @@ tags:
   - Performance
 ---
 
+import NavBanner from '@site/src/components/NavBanner';
 
 # Installing Drivers
 
-Insalling additional drivers will ensure that you have the best performance and compatibility with your games. See [here](https://github.com/lutris/docs/blob/master/InstallingDrivers.md) for more information.
+<NavBanner href="/wiki/cachyos/gaming/about" text="Return to Gaming Guide" />
 
-> [Go Home](/wiki/cachyos/gaming/about)
+Insalling additional drivers will ensure that you have the best performance and compatibility with your games. See [here](https://github.com/lutris/docs/blob/master/InstallingDrivers.md) for more information.
 
 ### Nvidia
 

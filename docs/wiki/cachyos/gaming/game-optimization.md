@@ -11,11 +11,13 @@ tags:
   - GameMode
 ---
 
+import NavBanner from '@site/src/components/NavBanner';
+
 # Game Optimization
 
-This section will cover some common game optimization tips and tricks. Not all of these will be applicable to all games, but they are a good starting point.
+<NavBanner href="/wiki/cachyos/gaming/about" text="Return to Gaming Guide" />
 
-> [Go Home](/wiki/cachyos/gaming/about)
+This section will cover some common game optimization tips and tricks. Not all of these will be applicable to all games, but they are a good starting point.
 
 ## CachyOS game-performance (Recommended)
 

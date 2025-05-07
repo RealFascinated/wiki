@@ -10,11 +10,13 @@ tags:
   - Performance
 ---
 
+import NavBanner from '@site/src/components/NavBanner';
+
 # Configuring Steam
 
-You will need to enable Steam Play to use Proton.
+<NavBanner href="/wiki/cachyos/gaming/about" text="Return to Gaming Guide" />
 
-> [Go Home](/wiki/cachyos/gaming/about)
+You will need to enable Steam Play to use Proton.
 
 ## Enabling Steam Play (Proton)
 

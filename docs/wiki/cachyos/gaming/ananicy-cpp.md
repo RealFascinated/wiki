@@ -8,11 +8,13 @@ tags:
   - Performance
 ---
 
+import NavBanner from '@site/src/components/NavBanner';
+
 # Disable / Enable Ananicy Cpp
 
-Ananicy Cpp is a lightweight, event-based process scheduler that automatically optimizes system performance by managing process priorities, CPU scheduling, IO scheduling, and cgroups with minimal resource usage.
+<NavBanner href="/wiki/cachyos/gaming/about" text="Return to Gaming Guide" />
 
-> [Go Home](/wiki/cachyos/gaming/about)
+Ananicy Cpp is a lightweight, event-based process scheduler that automatically optimizes system performance by managing process priorities, CPU scheduling, IO scheduling, and cgroups with minimal resource usage.
 
 ## Toggle Ananicy Cpp
 
