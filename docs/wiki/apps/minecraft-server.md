@@ -19,26 +19,6 @@ Features:
 
 ## Installation
 
-### Docker Run
-
-```bash
-docker run -d \
-  --name minecraft \
-  -p 25565:25565 \
-  -e EULA=TRUE \
-  -e TYPE=PAPER \
-  -e MEMORY=2048m \
-  -e USE_AIKAR_FLAGS=true \
-  -e MOTD="Welcome to Minecraft Server!" \
-  -e VIEW_DISTANCE=10 \
-  -e MAX_PLAYERS=20 \
-  -v minecraft:/data \
-  --restart unless-stopped \
-  itzg/minecraft-server
-```
-
-### Docker Compose
-
 1. Create a `docker-compose.yml` file
 
 ```bash

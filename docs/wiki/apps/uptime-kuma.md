@@ -19,14 +19,6 @@ Features:
 
 ## Installation
 
-### Docker Run
-
-```bash
-docker run -d --restart=unless-stopped -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
-```
-
-### Docker Compose
-
 1. Create a `docker-compose.yml` file
 
 ```bash
