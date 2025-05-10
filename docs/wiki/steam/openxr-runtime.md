@@ -6,7 +6,7 @@ tags:
   - Runtime
 ---
 
-# SteamVR OpenXR Runtime
+# SteamVR OpenXR Runtime Fix
 
 Sometimes clicking the "Select OpenXR Runtime" button in SteamVR does not work, and just prompts you to select an application (in KDE Plasma, this is the "Select Application" dialog).
 
