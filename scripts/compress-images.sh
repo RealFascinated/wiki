@@ -3,7 +3,7 @@
 # Default configuration
 QUALITY=85
 THRESHOLD=10
-TARGET_DIR="./docs"
+TARGET_DIRS=("./docs" "./static")  # Changed to array with default directories
 TEMP_DIR="temp"
 VERBOSE=false
 SUMMARY_FILE="$TEMP_DIR/compression_summary.txt"
@@ -13,14 +13,14 @@ while getopts "q:t:d:vh" opt; do
     case $opt in
         q) QUALITY="$OPTARG" ;;
         t) THRESHOLD="$OPTARG" ;;
-        d) TARGET_DIR="$OPTARG" ;;
+        d) IFS=',' read -ra TARGET_DIRS <<< "$OPTARG" ;;  # Split comma-separated directories
         v) VERBOSE=true ;;
         h)
             echo "Usage: $0 [options]"
             echo "Options:"
             echo "  -q QUALITY    Compression quality (1-100, default: 85)"
             echo "  -t THRESHOLD  Minimum compression percentage to keep (default: 10)"
-            echo "  -d DIR        Target directory to process (default: ./docs)"
+            echo "  -d DIRS       Comma-separated list of target directories (default: ./docs,./static)"
             echo "  -v           Verbose output"
             echo "  -h           Show this help message"
             exit 0
@@ -97,11 +97,27 @@ print_center() {
     printf '%*s%s%*s\n' $padding '' "$text" $padding ''
 }
 
+# Function to determine optimal quality based on file size
+get_optimal_quality() {
+    local file_size=$1
+    local original_quality=$2
+    
+    # For very large files (>500KB), use more aggressive compression
+    if [ $file_size -gt 512000 ]; then
+        echo $((original_quality - 10))
+    # For medium files (>100KB), use slightly more aggressive compression
+    elif [ $file_size -gt 102400 ]; then
+        echo $((original_quality - 5))
+    else
+        echo $original_quality
+    fi
+}
+
 # Print header
 echo
 print_center "Image Compression Report"
 print_line
-printf "Directory: %s\n" "$TARGET_DIR"
+printf "Directories: %s\n" "${TARGET_DIRS[*]}"
 printf "Settings: Quality %d%% | Threshold %d%%\n" "$QUALITY" "$THRESHOLD"
 print_line
 echo
@@ -113,70 +129,83 @@ compressed_count=0
 # Create a temporary file to track compressed count
 echo "0" > "$TEMP_DIR/compressed_count"
 
-# Find all image files in target directory
-find "$TARGET_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.webp" \) | while read -r image; do
-    # Skip files in temp directory
-    if [[ "$image" == *"$TEMP_DIR"* ]]; then
-        continue
-    fi
+# Process each target directory
+for TARGET_DIR in "${TARGET_DIRS[@]}"; do
+    # Find all image files in target directory
+    find "$TARGET_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.webp" \) | while read -r image; do
+        # Skip files in temp directory
+        if [[ "$image" == *"$TEMP_DIR"* ]]; then
+            continue
+        fi
 
-    # Get original file size
-    original_size=$(get_file_size "$image")
-    
-    # Create temp file path
-    temp_file="$TEMP_DIR/$(basename "$image")"
-    
-    # Compress based on file extension
-    case "${image,,}" in
-        *.png)
-            # Preserve PNG colors and transparency
-            magick "$image" -strip -define png:compression-level=9 -define png:compression-strategy=0 -define png:exclude-chunk=all -quality "$QUALITY" "$temp_file" 2>/dev/null
-            ;;
-        *.jpg|*.jpeg)
-            # Preserve original colors and use better JPEG compression
-            magick "$image" -strip -define jpeg:fancy-upsampling=off -define png:compression-level=9 -define png:compression-strategy=0 -quality "$QUALITY" "$temp_file" 2>/dev/null
-            ;;
-        *.webp)
-            # Use lossless compression for WebP if quality is high
-            if [ "$QUALITY" -gt 90 ]; then
-                cwebp -lossless "$image" -o "$temp_file" 2>/dev/null
-            else
-                cwebp -q "$QUALITY" -m 6 -sharp_yuv "$image" -o "$temp_file" 2>/dev/null
-            fi
-            ;;
-    esac
-    
-    # Check if compression was successful
-    if [ ! -f "$temp_file" ]; then
-        echo "Error: Failed to compress $image"
-        continue
-    fi
-    
-    # Get compressed file size
-    compressed_size=$(get_file_size "$temp_file")
-    
-    # Calculate compression percentage
-    compression_percent=$(calculate_compression "$original_size" "$compressed_size")
-    
-    # Print status based on compression result
-    if [ "$compressed_size" -eq "$original_size" ]; then
-        printf "= %s\n" "$image"
-    elif [ "$compressed_size" -gt "$original_size" ]; then
-        printf "× %s\n" "$image"
-    else
-        printf "✓ %s\n" "$image"
-        printf "  %s → %s (%d%% reduction)\n" "$(format_size $original_size)" "$(format_size $compressed_size)" "$compression_percent"
-    fi
-    
-    # Only keep if compression meets threshold
-    if [ "$compression_percent" -gt "$THRESHOLD" ]; then
-        mv "$temp_file" "$image"
-        echo "$image,$(format_size $original_size),$(format_size $compressed_size),$compression_percent%" >> "$SUMMARY_FILE"
-        # Increment compressed count in the temp file
-        echo $(( $(cat "$TEMP_DIR/compressed_count") + 1 )) > "$TEMP_DIR/compressed_count"
-    else
-        rm "$temp_file"
-    fi
+        # Get original file size
+        original_size=$(get_file_size "$image")
+        
+        # Create temp file path
+        temp_file="$TEMP_DIR/$(basename "$image")"
+        
+        # Compress based on file extension
+        case "${image,,}" in
+            *.png)
+                # Get optimal quality based on file size
+                optimal_quality=$(get_optimal_quality $original_size $QUALITY)
+                # Preserve PNG colors and transparency with more aggressive compression for large files
+                magick "$image" -strip -define png:compression-level=9 -define png:compression-strategy=0 -define png:exclude-chunk=all -quality "$optimal_quality" "$temp_file" 2>/dev/null
+                ;;
+            *.jpg|*.jpeg)
+                # Get optimal quality based on file size
+                optimal_quality=$(get_optimal_quality $original_size $QUALITY)
+                # Preserve original colors and use better JPEG compression
+                magick "$image" -strip -define jpeg:fancy-upsampling=off -define png:compression-level=9 -define png:compression-strategy=0 -quality "$optimal_quality" "$temp_file" 2>/dev/null
+                ;;
+            *.webp)
+                # For WebP, only attempt compression if the file is large enough
+                if [ $original_size -gt 51200 ]; then  # Only compress if > 50KB
+                    # Use lossless compression for WebP if quality is high
+                    if [ "$QUALITY" -gt 90 ]; then
+                        cwebp -lossless "$image" -o "$temp_file" 2>/dev/null
+                    else
+                        cwebp -q "$QUALITY" -m 6 -sharp_yuv "$image" -o "$temp_file" 2>/dev/null
+                    fi
+                else
+                    # Skip small WebP files
+                    continue
+                fi
+                ;;
+        esac
+        
+        # Check if compression was successful
+        if [ ! -f "$temp_file" ]; then
+            echo "Error: Failed to compress $image"
+            continue
+        fi
+        
+        # Get compressed file size
+        compressed_size=$(get_file_size "$temp_file")
+        
+        # Calculate compression percentage
+        compression_percent=$(calculate_compression "$original_size" "$compressed_size")
+        
+        # Print status based on compression result
+        if [ "$compressed_size" -eq "$original_size" ]; then
+            printf "= %s\n" "$image"
+        elif [ "$compressed_size" -gt "$original_size" ]; then
+            printf "× %s\n" "$image"
+        else
+            printf "✓ %s\n" "$image"
+            printf "  %s → %s (%d%% reduction)\n" "$(format_size $original_size)" "$(format_size $compressed_size)" "$compression_percent"
+        fi
+        
+        # Only keep if compression meets threshold
+        if [ "$compression_percent" -gt "$THRESHOLD" ]; then
+            mv "$temp_file" "$image"
+            echo "$image,$(format_size $original_size),$(format_size $compressed_size),$compression_percent%" >> "$SUMMARY_FILE"
+            # Increment compressed count in the temp file
+            echo $(( $(cat "$TEMP_DIR/compressed_count") + 1 )) > "$TEMP_DIR/compressed_count"
+        else
+            rm "$temp_file"
+        fi
+    done
 done
 
 # Get the final compressed count
