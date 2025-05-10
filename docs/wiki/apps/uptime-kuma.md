@@ -11,7 +11,8 @@ tags:
 
 Uptime Kuma is a simple uptime monitoring tool that allows you to monitor the uptime and status of your websites or docker containers. View their [GitHub](https://github.com/louislam/uptime-kuma) for more information.
 
-Features: 
+Features:
+
 - Monitoring uptime for HTTP(s) / TCP / Ping / DNS Record.
 - Alerting with Email, Slack, Discord, etc.
 - Beautiful dashboard and reports.
@@ -56,3 +57,5 @@ docker-compose up -d
 ```bash
 http://<your-server-ip>:3001
 ```
+
+Don't know the ip address of your host? Check out the [Finding Host IP Address](/wiki/linux/ip-addresses) guide.
