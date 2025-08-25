@@ -5,13 +5,13 @@ tags:
   - Ubuntu
 ---
 
-# Docker installation on Ubuntu 24.04+
+# Docker installation on Ubuntu 20.04+
 
 This guide provides step-by-step instructions for installing Docker Community Edition on Ubuntu. Docker is a powerful tool for containerization, allowing you to separate different services into individual containers and offering better resource efficiency compared to virtual machines.
 
 ## Prerequisites
 
-- A system running Ubuntu 24.04
+- A system running Ubuntu 20.04 (or higher)
 - A user account with sudo privileges
 - An internet connection
 
