@@ -29,9 +29,9 @@
   --docusaurus-highlighted-code-line-bg: rgba(167, 139, 250, 0.1);
 }
 
-/* Rich purple gradient for hero section */
+/* Dark purple gradient for hero section */
 .heroBanner {
-  background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%);
+  background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
 }
 
 /* Purple tint for code blocks */
