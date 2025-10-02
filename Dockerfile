@@ -21,7 +21,6 @@ RUN git clone --depth 1 https://github.com/RealFascinated/wiki.git /tmp/repo && 
     rm -rf /tmp/repo
 
 # Build the site
-ENV TERSER_DISABLE_WORKER=true
 RUN bun run build
 
 # Production stage
