@@ -63,7 +63,7 @@ Welcome to the ultimate guide for gaming on CachyOS! This comprehensive resource
    - Check if your GPU is being properly utilized
    - Monitor system resources using MangoHud
    - Try different launch options
-   - Enable [GameMode](#gamemode)
+   - Enable [GameMode](/wiki/cachyos/gaming/game-optimization#gamemode)
 
 ### Audio Configuration
 
