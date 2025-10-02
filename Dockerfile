@@ -7,7 +7,7 @@ WORKDIR /app
 RUN apk add --no-cache git
 
 # Copy package files
-COPY package.json bun.lockb ./
+COPY package.json bun.lock ./
 
 # Copy files
 COPY . .
