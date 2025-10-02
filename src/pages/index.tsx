@@ -13,38 +13,57 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className={styles.container}>
-        <img
-          src={siteConfig.favicon}
-          alt="Fascinated's Wiki Logo"
-          className={styles.heroLogo}
-        />
-        <Heading as="h1" className={styles.hero__title}>
-          {siteConfig.title}
-        </Heading>
-        <p className={styles.hero__subtitle}>{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className={clsx(
-              styles.button,
-              styles["button--primary"],
-              styles["button--lg"]
-            )}
-            to="/wiki/intro"
-          >
-            Get Started →
-          </Link>
-          <Link
-            className={clsx(
-              styles.button,
-              styles["button--secondary"],
-              styles["button--lg"]
-            )}
-            to={`https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View on GitHub
-          </Link>
+        <div className={styles.heroContent}>
+          <div className={styles.heroText}>
+            <Heading as="h1" className={styles.hero__title}>
+              Welcome to Fascinated's Wiki
+            </Heading>
+            <p className={styles.hero__subtitle}>
+              Your comprehensive guide to homelabbing, Linux administration, and
+              system automation
+            </p>
+            <div className={styles.buttons}>
+              <Link
+                className={clsx(
+                  styles.button,
+                  styles["button--primary"],
+                  styles["button--lg"]
+                )}
+                to="/wiki/intro"
+              >
+                Start Learning →
+              </Link>
+              <Link
+                className={clsx(
+                  styles.button,
+                  styles["button--secondary"],
+                  styles["button--lg"]
+                )}
+                to={`https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </Link>
+            </div>
+          </div>
+          <div className={styles.heroVisual}>
+            <div className={styles.heroCard}>
+              <div className={styles.cardIcon}>📚</div>
+              <h3>Comprehensive Guides</h3>
+              <p>From basics to advanced configurations</p>
+            </div>
+            <div className={styles.heroCard}>
+              <div className={styles.cardIcon}>⚡</div>
+              <h3>Quick Solutions</h3>
+              <p>Fast answers to common problems</p>
+            </div>
+            <div className={styles.heroCard}>
+              <div className={styles.cardIcon}>🔧</div>
+              <h3>Practical Tips</h3>
+              <p>Real-world examples and best practices</p>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -54,13 +73,16 @@ function HomepageHeader() {
 function Feature({
   title,
   description,
+  icon,
 }: {
   title: string;
   description: string;
+  icon: string;
 }) {
   return (
     <div className={clsx("col col--4", styles.feature)}>
-      <div className="text--center padding-horiz--md">
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>{icon}</div>
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
@@ -72,57 +94,28 @@ function FeaturesSection() {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.sectionHeader}>
+          <Heading as="h2">Why Choose Our Wiki?</Heading>
+          <p>
+            Everything you need to master homelabbing and system administration
+          </p>
+        </div>
         <div className="row">
           <Feature
             title="Comprehensive Guides"
             description="Detailed documentation covering various aspects of homelabbing, from basic setup to advanced configurations."
+            icon="📖"
           />
           <Feature
             title="Open Source"
             description="All content is open source and community-driven. Feel free to contribute and improve the documentation."
+            icon="🤝"
           />
           <Feature
             title="Regular Updates"
             description="Content is regularly updated to keep up with the latest technologies and best practices."
+            icon="🔄"
           />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function QuickLinksSection() {
-  return (
-    <section className={styles.quickLinks}>
-      <div className="container">
-        <Heading as="h2" className="text--center">
-          Quick Links
-        </Heading>
-        <div className={clsx("row", styles.quickLinksContainer)}>
-          <div className="col col--4">
-            <Link to="/wiki/linux/linux-basics" className={styles.quickLink}>
-              <div className={styles.quickLinkContent}>
-                <Heading as="h3">Linux Basics</Heading>
-                <p>Learn about Linux administration and configuration</p>
-              </div>
-            </Link>
-          </div>
-          <div className="col col--4">
-            <Link to="/wiki/linux/cronjobs" className={styles.quickLink}>
-              <div className={styles.quickLinkContent}>
-                <Heading as="h3">Cron Jobs</Heading>
-                <p>Schedule and manage automated tasks</p>
-              </div>
-            </Link>
-          </div>
-          <div className="col col--4">
-            <Link to="/wiki/intro" className={styles.quickLink}>
-              <div className={styles.quickLinkContent}>
-                <Heading as="h3">Getting Started</Heading>
-                <p>Begin your homelab journey</p>
-              </div>
-            </Link>
-          </div>
         </div>
       </div>
     </section>
@@ -131,7 +124,7 @@ function QuickLinksSection() {
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
-  
+
   return (
     <Layout
       title={`${siteConfig.title}`}
@@ -140,7 +133,6 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <FeaturesSection />
-        <QuickLinksSection />
       </main>
     </Layout>
   );

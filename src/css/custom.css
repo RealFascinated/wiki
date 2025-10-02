@@ -6,37 +6,37 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6b358d;
-  --ifm-color-primary-dark: #5d2f7b;
-  --ifm-color-primary-darker: #562b72;
-  --ifm-color-primary-darkest: #47235e;
-  --ifm-color-primary-light: #7a3fa0;
-  --ifm-color-primary-lighter: #8247a8;
-  --ifm-color-primary-lightest: #9b4dca;
+  --ifm-color-primary: #7c3aed;
+  --ifm-color-primary-dark: #6d28d9;
+  --ifm-color-primary-darker: #5b21b6;
+  --ifm-color-primary-darkest: #4c1d95;
+  --ifm-color-primary-light: #8b5cf6;
+  --ifm-color-primary-lighter: #a78bfa;
+  --ifm-color-primary-lightest: #c4b5fd;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(107, 53, 141, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(124, 58, 237, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #9b4dca;
-  --ifm-color-primary-dark: #8a45b6;
-  --ifm-color-primary-darker: #8241ac;
-  --ifm-color-primary-darkest: #6b358d;
-  --ifm-color-primary-light: #a55fd0;
-  --ifm-color-primary-lighter: #ac69d4;
-  --ifm-color-primary-lightest: #bd85de;
-  --docusaurus-highlighted-code-line-bg: rgba(155, 77, 202, 0.1);
+  --ifm-color-primary: #a78bfa;
+  --ifm-color-primary-dark: #8b5cf6;
+  --ifm-color-primary-darker: #7c3aed;
+  --ifm-color-primary-darkest: #6d28d9;
+  --ifm-color-primary-light: #c4b5fd;
+  --ifm-color-primary-lighter: #ddd6fe;
+  --ifm-color-primary-lightest: #ede9fe;
+  --docusaurus-highlighted-code-line-bg: rgba(167, 139, 250, 0.1);
 }
 
-/* Purple gradient for hero section */
+/* Rich purple gradient for hero section */
 .heroBanner {
-  background: linear-gradient(135deg, #4a235a 0%, #6b358d 100%);
+  background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%);
 }
 
 /* Purple tint for code blocks */
 .prism-code {
-  background-color: rgba(107, 53, 141, 0.05) !important;
+  background-color: rgba(124, 58, 237, 0.05) !important;
 }
 
 /* Purple hover effect for links */
@@ -71,4 +71,27 @@ a:hover {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ifm-color-primary-light);
+}
+
+/* Purple headings for markdown content */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: var(--ifm-color-primary);
+}
+
+/* Specific heading styles */
+.markdown h1 {
+  color: var(--ifm-color-primary);
+}
+
+.markdown h2 {
+  color: var(--ifm-color-primary);
+}
+
+.markdown h3 {
+  color: var(--ifm-color-primary-dark);
 }
