@@ -1,4 +1,4 @@
-FROM oven/bun:1.2.23-alpine AS builder
+FROM node:18-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -7,13 +7,13 @@ WORKDIR /app
 RUN apk add --no-cache git
 
 # Copy package files
-COPY package.json bun.lock ./
+COPY package.json ./
 
 # Copy files
 COPY . .
 
 # Install dependencies
-RUN bun install --frozen-lockfile
+RUN npm install
 
 # Clone the repository and preserve git history
 RUN git clone --depth 1 https://github.com/RealFascinated/wiki.git /tmp/repo && \
@@ -21,7 +21,7 @@ RUN git clone --depth 1 https://github.com/RealFascinated/wiki.git /tmp/repo && 
     rm -rf /tmp/repo
 
 # Build the site
-RUN bun run build
+RUN npm run build
 
 # Production stage
 FROM nginx:alpine
