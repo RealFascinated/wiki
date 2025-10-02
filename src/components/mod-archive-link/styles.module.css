@@ -1,0 +1,44 @@
+.modArchiveBanner {
+  margin: 1rem 0 2rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 0 4px 4px 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  text-decoration: none;
+  color: var(--ifm-color-primary-darker);
+}
+
+.modArchiveText {
+  font-size: 1em;
+}
+
+.modArchiveInfo {
+  color: var(--ifm-color-content);
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  padding-left: 0.5rem;
+  opacity: 0.85;
+  line-height: 1;
+  white-space: pre-line;
+  font-style: italic;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .navLink {
+  color: var(--ifm-color-primary-lighter);
+}
+
+[data-theme='dark'] .navLink:hover {
+  color: var(--ifm-color-primary-lightest);
+} 

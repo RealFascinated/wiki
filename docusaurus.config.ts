@@ -21,7 +21,6 @@ const config: Config = {
   projectName: "wiki", // Usually your repo name.
 
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -34,7 +33,7 @@ const config: Config = {
   plugins: [
     require.resolve("docusaurus-lunr-search"),
     [
-      '@docusaurus/plugin-ideal-image',
+      "@docusaurus/plugin-ideal-image",
       {
         quality: 70,
         max: 1030,
@@ -106,13 +105,19 @@ const config: Config = {
           label: "Homelab",
         },
         {
+          type: "docSidebar",
+          sidebarId: "minecraftSidebar",
+          position: "left",
+          label: "Minecraft Archives",
+        },
+        {
           href: "https://github.com/realfascinated/wiki",
           label: "GitHub",
           position: "right",
         },
         {
-          type: 'search',
-          position: 'right',
+          type: "search",
+          position: "right",
         },
       ],
     },
@@ -125,6 +130,14 @@ const config: Config = {
             {
               label: "Wiki",
               to: "wiki/intro",
+            },
+            {
+              label: "Minecraft Archives",
+              to: "minecraft-archives/intro",
+            },
+            {
+              label: "Homelab",
+              to: "homelab/intro",
             },
             {
               label: "Homelab",
@@ -164,26 +177,53 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["bash", "docker", "yaml", "json", "typescript", "javascript"],
+      additionalLanguages: [
+        "bash",
+        "docker",
+        "yaml",
+        "json",
+        "typescript",
+        "javascript",
+      ],
     },
     metadata: [
-      { name: "keywords", content: "wiki, homelab, documentation, guide, self-hosted, server, networking" },
-      { name: "description", content: "Comprehensive wiki and documentation for homelabbers, covering server setup, networking, and self-hosted applications." },
+      {
+        name: "keywords",
+        content:
+          "wiki, homelab, documentation, guide, self-hosted, server, networking",
+      },
+      {
+        name: "description",
+        content:
+          "Comprehensive wiki and documentation for homelabbers, covering server setup, networking, and self-hosted applications.",
+      },
       { name: "author", content: "Fascinated" },
       { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Fascinated's Wiki" },
-      { property: "og:description", content: "Wiki for Homelabbers and related projects" },
-      { property: "og:image", content: "https://wiki.fascinated.cc/img/docusaurus-social-card.jpg" },
+      {
+        property: "og:description",
+        content: "Wiki for Homelabbers and related projects",
+      },
+      {
+        property: "og:image",
+        content: "https://wiki.fascinated.cc/img/docusaurus-social-card.jpg",
+      },
       { property: "og:url", content: "https://wiki.fascinated.cc" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     announcementBar: {
-      id: 'support_us',
-      content: '⭐️ If you like this wiki, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/realfascinated/wiki">GitHub</a>!',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
+      id: "support_us",
+      content:
+        '⭐️ If you like this wiki, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/realfascinated/wiki">GitHub</a>!',
+      backgroundColor: "#fafbfc",
+      textColor: "#091E42",
       isCloseable: true,
+    },
+    markdown: {
+      hooks: {
+        onBrokenMarkdownLinks: "warn",
+      },
     },
   } satisfies Preset.ThemeConfig,
 };
