@@ -9,7 +9,7 @@ The server I use to run most things in my Homelab (including this website!), and
 ## Server Specs
 
 - CPU: AMD Ryzen 7 5800x
-- GPU: NVIDIA GeForce GTX 1060
+- GPU: Some old nvidia one - for video output
 - RAM: 64GB DDR4
 
 ## Storage
@@ -18,6 +18,8 @@ The server I use to run most things in my Homelab (including this website!), and
 - 1x Crucial P3 1TB (Containers / VMs)
 
 ## Images
+
+*Note: These images are outdated and no longer reflect the current build.*
 
 ![Front](./img/proxmox/20250503_192850.jpg)
 ![Side](./img/proxmox/20250503_192825.jpg)
