@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Fascinated's Wiki",
   tagline: "Wiki for Homelabbers and related projects",
-  favicon: "https://cdn.fascinated.cc/v3mcsT0F.jpg",
+  favicon: "img/logo.jpg",
 
   // Set the production url of your site here
   url: "https://wiki.fascinated.cc",
@@ -71,13 +71,13 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    // Social card (also used as the og:image / twitter:image metadata)
+    image: "img/logo.jpg",
     navbar: {
       title: "Fascinated's Wiki",
       logo: {
         alt: "Fascinated's Wiki Logo",
-        src: "https://cdn.fascinated.cc/v3mcsT0F.jpg",
+        src: "img/logo.jpg",
       },
       items: [
         {
@@ -195,7 +195,7 @@ const config: Config = {
       },
       {
         property: "og:image",
-        content: "https://wiki.fascinated.cc/img/docusaurus-social-card.jpg",
+        content: "https://wiki.fascinated.cc/img/logo.jpg",
       },
       { property: "og:url", content: "https://wiki.fascinated.cc" },
       { name: "twitter:card", content: "summary_large_image" },
