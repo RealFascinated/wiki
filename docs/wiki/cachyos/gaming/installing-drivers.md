@@ -23,8 +23,10 @@ Insalling additional drivers will ensure that you have the best performance and 
 ### Nvidia
 
 ```bash
-yay -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+yay -S nvidia-open-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
 ```
+
+*Note: `nvidia-open-dkms` supports Turing (GTX 16xx / RTX 20xx) and newer GPUs. Pascal and older cards need the legacy `nvidia-580xx-dkms` package instead.*
 
 ### AMD
 

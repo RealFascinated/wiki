@@ -24,10 +24,10 @@ This command:
 
 ## Update AUR Packages
 
-To update packages from the Arch User Repository (AUR) using yay:
+To update only packages from the Arch User Repository (AUR) using yay:
 
 ```bash
-yay -Syu
+yay -Syu --aur
 ```
 
 ## Update System and AUR Packages Together
@@ -35,7 +35,7 @@ yay -Syu
 To update both system packages and AUR packages in one command:
 
 ```bash
-yay -Syu --aur
+yay -Syu
 ```
 
 ## Clean Package Cache

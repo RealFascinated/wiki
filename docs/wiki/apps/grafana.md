@@ -46,7 +46,7 @@ volumes:
 3. Start the container
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Configuration
@@ -57,7 +57,7 @@ Grafana can be configured using environment variables and configuration files. H
 - `GF_SECURITY_ADMIN_USER`: Admin username (default: "admin")
 - `GF_SECURITY_ADMIN_PASSWORD`: Admin password (default: "admin")
 - `GF_SERVER_HTTP_PORT`: HTTP port (default: 3000)
-- `GF_INSTALL_PLUGINS`: Comma-separated list of plugins to install
+- `GF_PLUGINS_PREINSTALL`: Comma-separated list of plugins to install (replaces the deprecated `GF_INSTALL_PLUGINS`)
 - `GF_AUTH_ANONYMOUS_ENABLED`: Enable anonymous access (true/false)
 - `GF_AUTH_ANONYMOUS_ORG_ROLE`: Role for anonymous users (Viewer/Editor/Admin)
 

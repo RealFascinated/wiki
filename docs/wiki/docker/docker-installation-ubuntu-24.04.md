@@ -57,7 +57,7 @@ Docker version 23.0.6, build ef23cbc
 Or simply run
 
 ```bash
-sudo apt update && sudo apt upgrade -y && apt install curl && curl -sSL https://get.docker.com/ | CHANNEL=stable bash
+sudo apt update && sudo apt upgrade -y && sudo apt install curl && curl -sSL https://get.docker.com/ | CHANNEL=stable bash
 ```
 
 ## Finished

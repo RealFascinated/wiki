@@ -62,7 +62,7 @@ sudo systemctl status my-service
 
 ## Finished
 
-You have successfully created a Systemd service on Ubuntu 22.04. You can now manage the service using the `systemctl` command.
+You have successfully created a Systemd service on Ubuntu 24.04. You can now manage the service using the `systemctl` command.
 
 ## Logs
 

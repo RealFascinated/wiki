@@ -53,7 +53,7 @@ volumes:
 3. Start the container
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Configuration
@@ -63,8 +63,8 @@ The server can be configured using environment variables. Here are some common o
 - `EULA`: Must be set to TRUE to accept the Minecraft EULA
 - `TYPE`: Server type (VANILLA, FORGE, FABRIC, PAPER, etc.)
 - `VERSION`: Minecraft version
-- `MEMORY`: Memory allocation (default: "2048m")
-- `USE_AIKAR_FLAGS`: Enable Aikar's optimized JVM flags (default: "true")
+- `MEMORY`: Memory allocation (default: "1G")
+- `USE_AIKAR_FLAGS`: Enable Aikar's optimized JVM flags (default: "false")
 - `DIFFICULTY`: Game difficulty (peaceful, easy, normal, hard)
 - `MODE`: Game mode (survival, creative, adventure, spectator)
 - `MOTD`: Message of the day

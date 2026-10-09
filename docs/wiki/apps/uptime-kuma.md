@@ -30,7 +30,7 @@ touch docker-compose.yml
 ```yaml
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:1
+    image: louislam/uptime-kuma:2
     container_name: uptime-kuma
     volumes:
       - /docker/uptimekuma:/app/data
@@ -41,7 +41,7 @@ services:
 3. Start the container
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Access Uptime Kuma
