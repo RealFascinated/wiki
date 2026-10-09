@@ -1,10 +1,20 @@
 {
   // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "./node_modules/@docusaurus/tsconfig/tsconfig.json",
+  // Options from @docusaurus/tsconfig are inlined because it still sets `baseUrl`,
+  // which TypeScript 7 no longer supports.
   "compilerOptions": {
-    "baseUrl": ".",
+    "allowJs": true,
+    "esModuleInterop": true,
     "jsx": "react",
-    "esModuleInterop": true
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "noEmit": true,
+    "paths": {
+      "@site/*": ["./*"]
+    },
+    "skipLibCheck": true
   },
   "exclude": [".docusaurus", "build"]
 }

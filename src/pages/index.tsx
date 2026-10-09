@@ -1,138 +1,119 @@
 import React, { ReactNode } from "react";
-import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
+type DocLink = { label: string; to: string } | { label: string; href: string };
 
-  return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className={styles.container}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroText}>
-            <Heading as="h1" className={styles.hero__title}>
-              Welcome to Fascinated's Wiki
-            </Heading>
-            <p className={styles.hero__subtitle}>
-              Your comprehensive guide to homelabbing, Linux administration, and
-              system automation
-            </p>
-            <div className={styles.buttons}>
-              <Link
-                className={clsx(
-                  styles.button,
-                  styles["button--primary"],
-                  styles["button--lg"]
-                )}
-                to="/wiki/intro"
-              >
-                Start Learning →
-              </Link>
-              <Link
-                className={clsx(
-                  styles.button,
-                  styles["button--secondary"],
-                  styles["button--lg"]
-                )}
-                to={`https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on GitHub
-              </Link>
-            </div>
-          </div>
-          <div className={styles.heroVisual}>
-            <div className={styles.heroCard}>
-              <div className={styles.cardIcon}>📚</div>
-              <h3>Comprehensive Guides</h3>
-              <p>From basics to advanced configurations</p>
-            </div>
-            <div className={styles.heroCard}>
-              <div className={styles.cardIcon}>⚡</div>
-              <h3>Quick Solutions</h3>
-              <p>Fast answers to common problems</p>
-            </div>
-            <div className={styles.heroCard}>
-              <div className={styles.cardIcon}>🔧</div>
-              <h3>Practical Tips</h3>
-              <p>Real-world examples and best practices</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function Feature({
-  title,
-  description,
-  icon,
-}: {
+type Section = {
   title: string;
+  to: string;
   description: string;
-  icon: string;
-}) {
-  return (
-    <div className={clsx("col col--4", styles.feature)}>
-      <div className={styles.featureCard}>
-        <div className={styles.featureIcon}>{icon}</div>
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
+  links: DocLink[];
+};
 
-function FeaturesSection() {
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className={styles.sectionHeader}>
-          <Heading as="h2">Why Choose Our Wiki?</Heading>
-          <p>
-            Everything you need to master homelabbing and system administration
-          </p>
-        </div>
-        <div className="row">
-          <Feature
-            title="Comprehensive Guides"
-            description="Detailed documentation covering various aspects of homelabbing, from basic setup to advanced configurations."
-            icon="📖"
-          />
-          <Feature
-            title="Open Source"
-            description="All content is open source and community-driven. Feel free to contribute and improve the documentation."
-            icon="🤝"
-          />
-          <Feature
-            title="Regular Updates"
-            description="Content is regularly updated to keep up with the latest technologies and best practices."
-            icon="🔄"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
+const sections: Section[] = [
+  {
+    title: "Wiki",
+    to: "/wiki/intro",
+    description: "Guides for Linux and the things I self-host.",
+    links: [
+      { label: "Linux basics", to: "/wiki/linux/linux-basics" },
+      {
+        label: "Installing Docker on Ubuntu",
+        to: "/wiki/docker/docker-installation-ubuntu-24.04",
+      },
+      {
+        label: "Creating a systemd service",
+        to: "/wiki/systemd/creating-a-systemd-service",
+      },
+      { label: "Cronjob examples", to: "/wiki/linux/cronjobs" },
+      { label: "Gaming on CachyOS", to: "/wiki/cachyos/gaming/about" },
+    ],
+  },
+  {
+    title: "Homelab",
+    to: "/homelab/intro",
+    description: "The machines this site runs on, and what's on them.",
+    links: [
+      { label: "Proxmox server", to: "/homelab/server-builds/proxmox" },
+      { label: "Unraid NAS", to: "/homelab/server-builds/unraid-nas" },
+      { label: "Grafana", to: "/wiki/apps/grafana" },
+      { label: "Uptime Kuma", to: "/wiki/apps/uptime-kuma" },
+    ],
+  },
+  {
+    title: "Minecraft Archives",
+    to: "/minecraft-archives/intro",
+    description: "Beta-era mods and resources I want to keep around.",
+    links: [
+      {
+        label: "OptiFine for b1.7.3",
+        to: "/minecraft-archives/mods/b1.7.3/optifine",
+      },
+    ],
+  },
+];
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
+  const repoUrl = `https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`;
 
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="A comprehensive wiki for homelab enthusiasts, featuring guides on Linux administration, automation, and system configuration."
+      title={siteConfig.title}
+      description="Notes and guides for Linux, self-hosting, and a small Minecraft archive."
     >
-      <HomepageHeader />
-      <main>
-        <FeaturesSection />
+      <header className={styles.hero}>
+        <div className="container">
+          <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
+          <p className={styles.heroSubtitle}>
+            Notes and guides for Linux, self-hosting, and a small Minecraft
+            archive. Mostly written so I don't have to look things up twice.
+          </p>
+          <p className={styles.heroLinks}>
+            <Link className={styles.buttonPrimary} to="/wiki/intro">
+              Browse the wiki
+            </Link>
+            <Link className={styles.buttonSecondary} href={repoUrl}>
+              GitHub
+            </Link>
+          </p>
+        </div>
+      </header>
+      <main className={styles.main}>
+        <div className="container">
+          <div className={styles.sections}>
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className={styles.sectionTitle}>
+                  <Link to={section.to}>{section.title}</Link>
+                </h2>
+                <p className={styles.sectionDescription}>
+                  {section.description}
+                </p>
+                <ul className={styles.sectionLinks}>
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      {"to" in link ? (
+                        <Link to={link.to}>{link.label}</Link>
+                      ) : (
+                        <Link href={link.href}>{link.label}</Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+          <p className={styles.note}>
+            Something wrong or out of date?{" "}
+            <Link href={`${repoUrl}/issues`}>Open an issue</Link> and I'll fix
+            it.
+          </p>
+        </div>
       </main>
     </Layout>
   );

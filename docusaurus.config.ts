@@ -201,9 +201,9 @@ const config: Config = {
       { name: "twitter:card", content: "summary_large_image" },
     ],
     announcementBar: {
-      id: "support_us",
+      id: "arona-discord-bot",
       content:
-        '⭐️ If you like this wiki, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/realfascinated/wiki">GitHub</a>!',
+        'Hello everyone! Please check out my <a target="_blank" rel="noopener noreferrer" href="https://discord.com/oauth2/authorize?client_id=879163534871789619&scope=bot%20applications.commands&permissions=8">Discord bot</a>!',
       backgroundColor: "#fafbfc",
       textColor: "#091E42",
       isCloseable: true,
